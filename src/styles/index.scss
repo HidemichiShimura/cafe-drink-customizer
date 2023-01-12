@@ -1,0 +1,21 @@
+// refered https://github.com/KittyGiraudel/sass-boilerplate/blob/master/stylesheets/main.scss
+@charset "UTF-8";
+
+// using forward no need to specify files
+// x : @use 'abstracts/variables';
+// o : @use 'abstracts';
+
+// variables
+// @use 'abstracts';
+
+// mixin
+// @use 'mixin';
+
+// base style
+@use 'base';
+
+// layout styles
+@use 'layout';
+
+// page styles
+@use 'pages';
