@@ -9,10 +9,10 @@ const fetchFBCustomizes = async () => {
     .catch((_) => {throw new Error('Error with fetchFBCustomizes');});
 };
 
-const fetchFBFeelings = async () => {
-  return getDocs(collection(db, "feelings"))
+const fetchFBMoods = async () => {
+  return getDocs(collection(db, "moods"))
     .then((qs) => qs.docs.map(destructuringData))
-    .catch((_) => {throw new Error('Error with fetchFBFeelings');});
+    .catch((_) => {throw new Error('Error with fetchFBMoods');});
 };
 
 const fetchFBOptions = async () => {
@@ -23,6 +23,6 @@ const fetchFBOptions = async () => {
 
 export { 
   fetchFBCustomizes, 
-  fetchFBFeelings, 
+  fetchFBMoods, 
   fetchFBOptions 
 };

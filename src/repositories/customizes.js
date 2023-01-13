@@ -1,13 +1,22 @@
 import { fetchFBCustomizes } from "fb/services/customizeServices";
 
 const convertBtoF = (customizes) => {
-  const { date_created, feeling_id, ...rest } = customizes;
-  return { ...rest, dateCreated: date_created, feelingId: feeling_id };
+  const { date_created, mood_id, option_ids, ...rest } = customizes;
+  return { 
+    ...rest, 
+    dateCreated: date_created, 
+    moodId: mood_id, 
+    optionIds: option_ids 
+  };
 };
 
 const convertFtoB = (customizes) => {
-  const { dateCreated, feelingId, ...rest } = customizes;
-  return { ...rest, date_created: dateCreated, feeling_id: feelingId };
+  const { dateCreated, moodId, ...rest } = customizes;
+  return { 
+    ...rest,
+    date_created: dateCreated,
+    mood_id: moodId 
+  };
 };
 
 /**
