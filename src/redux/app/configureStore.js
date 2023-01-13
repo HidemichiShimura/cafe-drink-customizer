@@ -3,7 +3,7 @@ import newsListReducer from 'redux/feature/newsListSlice';
 
 const store = configureStore({
   reducer: {
-    newsList: newsListReducer,
+    newsListState: newsListReducer,
   }
 });
 

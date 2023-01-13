@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
-import { useAppDispatch, useAppSelector } from 'redux/app/hook';
+import { useDispatch, useSelector } from 'react-redux';
 import { newsListReducerActions, selectNewsList } from 'redux/feature/newsListSlice';
 
 // custom hook which will return isFetching, newsList, fetchNewsList
 const useNewsFeed = () => {
-  const { isFetching, newsList } = useAppSelector(selectNewsList);
-  const dispatch = useAppDispatch();
+  const { isFetching, newsList } = useSelector(selectNewsList);
+  const dispatch = useDispatch();
 
   const fetchNewsList = useCallback(
     (searchParamObj) => {
