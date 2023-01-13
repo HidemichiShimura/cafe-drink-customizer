@@ -1,8 +1,8 @@
-import { fetchFBOptions } from "fb/services/customizeServices";
+import { fetchFBMoods } from "fb/services/customizeServices";
 
-const convertBtoF = (options) => {
-  const { ...rest } = options;
-  return { ...rest, };
+const convertBtoF = (moods) => {
+  const { mood_name, ...rest } = moods;
+  return { ...rest, moodName: mood_name };
 };
 
 // It won't be needed if there's no post request for moods
@@ -15,10 +15,10 @@ const convertBtoF = (options) => {
  * Returns the sum of a and b 
  * @returns {Array} customizes data
  */
-const fetchOptions = async () => 
-  fetchFBOptions()
+const fetchMoods = async () => 
+  fetchFBMoods()
     .then(res => res.map(convertBtoF));
 
-export const optionsImpl = {
-  fetchOptions
+export const moodsImpl = {
+  fetchMoods
 };

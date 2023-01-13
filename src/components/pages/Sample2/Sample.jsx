@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useNewsFeed from 'hooks/useNewsFeed';
+import useCustomizes from 'hooks/useCustomizes';
 
 // no businesslogics
 const Sample = ({ isFetching, newsLis }) => (
@@ -12,7 +12,7 @@ const Sample = ({ isFetching, newsLis }) => (
 
 // business logics here
 const SampleContainer = () => {
-  const { isFetching, newsList, fetchNewsList } = useNewsFeed();
+  const { isFetching, newsList, fetchNewsList } = useCustomizes();
 
   useEffect(() => {
     fetchNewsList({ 'sampleKey': 'sample' });

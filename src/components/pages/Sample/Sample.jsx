@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
-import useNewsFeed from 'hooks/useNewsFeed';
+import { useRecoilValue } from 'recoil';
 import SmapleItem from './SampleItem';
-import { backend } from 'repositories';
+import { customizesSelector } from 'store/selectors/customizesSelector';
 
 // no businesslogics
-const Sample = ({ isFetching, newsLis }) => (
+const Sample = () => (
   <div>
-    {isFetching && (<>...Loading</>)}
-    {newsLis && { newsLis }}
+
     this is sample
     <SmapleItem />
   </div>
@@ -15,21 +14,24 @@ const Sample = ({ isFetching, newsLis }) => (
 
 // business logics here
 const SampleContainer = () => {
-  const { isFetching, newsList, fetchNewsList } = useNewsFeed();
 
-  useEffect(() => {
-    backend.customizes.fetchCustomizes().then(res => console.log(res));
-  }, []);
+  const customizes = useRecoilValue(customizesSelector);
 
-  useEffect(() => {
-    backend.feelings.fetchFeelings().then(res => console.log(res));
-  }, []);
+  // useEffect(() => {
+  //   backend.customizes.fetchCustomizes().then(res => console.log(res));
+  // }, []);
 
-  useEffect(() => {
-    backend.options.fetchOptions().then(res => console.log(res));
-  });
+  // useEffect(() => {
+  //   backend.moods.fetchMoods().then(res => console.log(res));
+  // }, []);
 
-  return <Sample isFetching={isFetching} newsList={newsList} />;
+  // useEffect(() => {
+  //   backend.options.fetchOptions().then(res => console.log(res));
+  // });
+
+  return (
+    <Sample />
+  );
 };
 
 export default SampleContainer;
