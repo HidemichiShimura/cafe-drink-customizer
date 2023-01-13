@@ -1,5 +1,10 @@
-import { newsImpl } from './newsService';
+// import { newsImpl } from './newsService';
+import { customizesImpl } from './customizes';
+import { feelingsImpl } from './feelings';
+import { optionsImpl } from './options';
 
 export const backend = {
-    news: newsImpl
+  customizes: customizesImpl,
+  feelings: feelingsImpl,
+  options: optionsImpl
 };

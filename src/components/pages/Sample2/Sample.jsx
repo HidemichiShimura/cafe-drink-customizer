@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import useNewsFeed from 'hooks/useNewsFeed';
 
 // no businesslogics
-const Sample = ({isFetching, newsLis}) => (
+const Sample = ({ isFetching, newsLis }) => (
   <div>
     {isFetching && (<>...Loading</>)}
-    {newsLis && {newsLis}}
+    {newsLis && { newsLis }}
     this is sample
   </div>
 );
@@ -15,7 +15,7 @@ const SampleContainer = () => {
   const { isFetching, newsList, fetchNewsList } = useNewsFeed();
 
   useEffect(() => {
-    fetchNewsList({'sampleKey': 'sample'});
+    fetchNewsList({ 'sampleKey': 'sample' });
   }, []);
 
   return <Sample isFetching={isFetching} newsList={newsList} />;
