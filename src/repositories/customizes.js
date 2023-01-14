@@ -1,10 +1,10 @@
-import { fetchFBCustomizes } from "fb/services/customizeServices";
+import { fetchFBCustomizes } from "@/fb/services/customizeServices";
 
 const convertBtoF = (customizes) => {
   const { date_created, mood_id, option_ids, ...rest } = customizes;
   return { 
     ...rest, 
-    dateCreated: date_created, 
+    dateCreated: date_created.toMillis(), 
     moodId: mood_id, 
     optionIds: option_ids 
   };

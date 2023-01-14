@@ -1,4 +1,4 @@
-import { fetchFBOptions } from "fb/services/customizeServices";
+import { fetchFBOptions } from "@/fb/services/customizeServices";
 
 const convertBtoF = (options) => {
   const { ...rest } = options;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SmapleItem = ()=> (
+const SmapleItem = () => (
   <div>SmapleItem</div>
 );
 
