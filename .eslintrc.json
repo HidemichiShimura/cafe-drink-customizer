@@ -1,121 +1,98 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "semi": "error",
+    "no-empty-function": "off",
+    "no-unused-vars": "off",
+    "object-curly-spacing": [
+      "error",
+      "always"
     ],
-    "settings": {
-        "react": {
-            "version": "detect"
-        }
-    },
-    "overrides": [],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        "semi": "error",
-        "no-empty-function": "off",
-        "no-unused-vars": "off",
-        "object-curly-spacing": [
-            "error",
-            "always"
-        ],
-        "func-names": 0,
-        "class-methods-use-this": 0,
-        "react/prop-types": 0,
-        "indent": [
-            1,
-            2,
-            {
-                "SwitchCase": 1,
-                "ignoredNodes": [
-                    "JSXOpeningElement"
-                ]
-            }
-        ],
-        "key-spacing": [
-            2,
-            {
-                "beforeColon": false,
-                "afterColon": true
-            }
-        ],
-        "max-len": 0,
-        "no-mixed-spaces-and-tabs": [
-            2
-        ],
-        "no-multiple-empty-lines": [
-            2,
-            {
-                "max": 2
-            }
-        ],
-        "no-param-reassign": [
-            2,
-            {
-                "props": false
-            }
-        ],
-        "no-plusplus": [
-            2,
-            {
-                "allowForLoopAfterthoughts": true
-            }
-        ],
-        "no-tabs": 1,
-        "no-unused-expressions": 0,
-        "object-shorthand": [
-            2,
-            "always",
-            {
-                "avoidQuotes": true
-            }
-        ],
-        "padded-blocks": 0,
-        "prefer-destructuring": 0,
-        "no-multi-spaces": [
-            2,
-            {
-                "ignoreEOLComments": false,
-                "exceptions": {
-                    "VariableDeclarator": false
-                }
-            }
-        ],
-        "react/no-unused-class-component-methods": 0,
-        "function-paren-newline": 0,
-        "react/jsx-closing-bracket-location": [
-            1,
-            "props-aligned"
-        ],
-        "react/jsx-indent": [
-            2,
-            2
-        ],
-        "react/jsx-indent-props": [
-            2,
-            2
-        ],
-        "react/jsx-no-bind": 0,
-        "react/jsx-tag-spacing": [
-            2,
-            {
-                "closingSlash": "never",
-                "beforeSelfClosing": "always",
-                "afterOpening": "never",
-                "beforeClosing": "never"
-            }
+    "func-names": 0,
+    "class-methods-use-this": 0,
+    "react/prop-types": 0,
+    "indent": [
+      1,
+      2,
+      {
+        "SwitchCase": 1,
+        "ignoredNodes": [
+          "JSXOpeningElement"
         ]
-    }
+      }
+    ],
+    "key-spacing": [
+      2,
+      {
+        "beforeColon": false,
+        "afterColon": true
+      }
+    ],
+    "max-len": 0,
+    "no-mixed-spaces-and-tabs": [
+      2
+    ],
+    "no-multiple-empty-lines": [
+      2,
+      {
+        "max": 2
+      }
+    ],
+    "no-param-reassign": [
+      2,
+      {
+        "props": false
+      }
+    ],
+    "no-plusplus": [
+      2,
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-tabs": 1,
+    "no-unused-expressions": 0,
+    "object-shorthand": [
+      2,
+      "always",
+      {
+        "avoidQuotes": true
+      }
+    ],
+    "padded-blocks": 0,
+    "prefer-destructuring": 0,
+    "no-multi-spaces": [
+      2,
+      {
+        "ignoreEOLComments": false,
+        "exceptions": {
+          "VariableDeclarator": false
+        }
+      }
+    ],
+    "react/no-unused-class-component-methods": 0,
+    "function-paren-newline": 0,
+    "react/jsx-closing-bracket-location": [
+      1,
+      "props-aligned"
+    ],
+    "react/jsx-indent": [
+      2,
+      2
+    ],
+    "react/jsx-indent-props": [
+      2,
+      2
+    ],
+    "react/jsx-no-bind": 0,
+    "react/jsx-tag-spacing": [
+      2,
+      {
+        "closingSlash": "never",
+        "beforeSelfClosing": "always",
+        "afterOpening": "never",
+        "beforeClosing": "never"
+      }
+    ]
+  }
 }

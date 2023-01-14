@@ -1,4 +1,4 @@
-import { fetchFBMoods } from "fb/services/customizeServices";
+import { fetchFBMoods } from "@/fb/services/customizeServices";
 
 const convertBtoF = (moods) => {
   const { mood_name, ...rest } = moods;
