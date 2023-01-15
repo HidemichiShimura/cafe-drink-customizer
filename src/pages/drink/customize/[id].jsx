@@ -1,14 +1,11 @@
-import { useRecoilState } from 'recoil';
 import { backend } from "@/repositories";
-import SmapleItem from '@/components/pages/Sample/SampleItem';
-import sampleState from '@/store/atoms/sampleState';
 
 // no businesslogics
-const DrinkCustomize = ({ customizeInfo }) => (
+const CustomDrink = ({ customDrink }) => (
   <div>
-    {customizeInfo && Object.keys(customizeInfo).map(c => (
+    {customDrink && Object.keys(customDrink).map(c => (
       <div key={c}>
-        {c} {'=>'} {customizeInfo[c]}
+        {c} {'=>'} {customDrink[c]}
       </div>
     ))}
 
@@ -17,14 +14,14 @@ const DrinkCustomize = ({ customizeInfo }) => (
 
 export const getStaticProps = async ({ params }) => {
   const { id } = params;
-  const data = await backend.customizes.fetchCustomize(id);
+  const customDrink = await backend.customDrinks.fetchCustomDrink(id);
   return {
-    props: { customizeInfo: data }
+    props: { customDrink }
   };
 };
 
 export async function getStaticPaths() {
-  const data = await backend.customizes.fetchCustomizes();
+  const data = await backend.customDrinks.fetchCustomDrinks();
 
   const paths = data.map((d) => ({
     params: { id: d.id },
@@ -33,4 +30,4 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export default DrinkCustomize;
+export default CustomDrink;

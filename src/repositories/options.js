@@ -1,4 +1,4 @@
-import { fetchFBOptions } from "@/fb/services/customizeServices";
+import { fetchFBOptions } from "@/fb/services/customDrinksServices";
 
 const convertBtoF = (options) => {
   const { ...rest } = options;
@@ -13,7 +13,7 @@ const convertBtoF = (options) => {
 
 /**
  * Returns the sum of a and b 
- * @returns {Array} customizes data
+ * @returns {Array} options data
  */
 const fetchOptions = async () => 
   fetchFBOptions()
