@@ -4,7 +4,7 @@ import { db } from '../configFirestore';
 const restructuringData = (doc) => ({ ...doc.data(), id: doc.id });
 
 const fetchFBCustomizes = async () => {
-  return getDocs(collection(db, "customizes"))
+  return getDocs(collection(db, "custom_drinks"))
     .then((qs) => qs.docs.map(restructuringData))
     .catch((_) => { throw new Error('Error with fetchFBCustomizes'); });
 };
