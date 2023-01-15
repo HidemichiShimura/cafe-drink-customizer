@@ -1,4 +1,4 @@
-import { fetchFBMoods } from "@/fb/services/customizeServices";
+import { fetchFBMoods } from "@/fb/services/customDrinksServices";
 
 const convertBtoF = (moods) => {
   const { mood_name, ...rest } = moods;
@@ -13,7 +13,7 @@ const convertBtoF = (moods) => {
 
 /**
  * Returns the sum of a and b 
- * @returns {Array} customizes data
+ * @returns {Array} moods data
  */
 const fetchMoods = async () => 
   fetchFBMoods()

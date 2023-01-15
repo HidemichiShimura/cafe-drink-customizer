@@ -4,10 +4,10 @@ import SmapleItem from '@/components/pages/Sample/SampleItem';
 import sampleState from '@/store/atoms/sampleState';
 
 // no businesslogics
-const Sample = ({ customizes, smaple, handleClick }) => (
+const Sample = ({ customDrinks, smaple, handleClick }) => (
   <div>
     {
-      customizes.length && customizes.map(({
+      customDrinks.length && customDrinks.map(({
         id,
         dateCreated,
         description,
@@ -37,7 +37,7 @@ const Sample = ({ customizes, smaple, handleClick }) => (
 );
 
 // business logics here
-const SampleContainer = ({ customizes }) => {
+const SampleContainer = ({ customDrinks }) => {
 
   const [smaple, setSample] = useRecoilState(sampleState);
 
@@ -45,7 +45,7 @@ const SampleContainer = ({ customizes }) => {
 
   return (
     <Sample
-      customizes={customizes}
+      customDrinks={customDrinks}
       smaple={smaple}
       handleClick={handleClick}
       />
@@ -53,9 +53,9 @@ const SampleContainer = ({ customizes }) => {
 };
 
 export const getStaticProps = async () => {
-  const data = await backend.customizes.fetchCustomizes();
+  const customDrinks = await backend.customDrinks.fetchCustomDrinks();
   return {
-    props: { customizes: data },
+    props: { customDrinks },
     revalidate: 10
   };
 };
