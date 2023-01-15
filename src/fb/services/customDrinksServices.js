@@ -3,17 +3,17 @@ import { db } from '../configFirestore';
 
 const restructuringData = (doc) => ({ ...doc.data(), id: doc.id });
 
-const fetchFBCustomizes = async () => {
+const fetchFBCustomDrinks = async () => {
   return getDocs(collection(db, "custom_drinks"))
     .then((qs) => qs.docs.map(restructuringData))
-    .catch((_) => { throw new Error('Error with fetchFBCustomizes'); });
+    .catch((_) => { throw new Error('Error with fetchFBCustomDrinks'); });
 };
 
-const fetchFBCustomize = async (id) => {
+const fetchFBCustomDrink = async (id) => {
   if (!id) throw new Error('Failed to read id');
-  return getDoc(doc(db, "customizes", id))
+  return getDoc(doc(db, "custom_drinks", id))
     .then((qs) => restructuringData(qs))
-    .catch((_) => { throw new Error('Error with fetchFBCustomizes'); });
+    .catch((_) => { throw new Error('Error with fetchFBCustomDrink'); });
 };
 
 const fetchFBMoods = async () => {
@@ -29,8 +29,8 @@ const fetchFBOptions = async () => {
 };
 
 export { 
-  fetchFBCustomizes, 
-  fetchFBCustomize,
+  fetchFBCustomDrinks, 
+  fetchFBCustomDrink,
   fetchFBMoods, 
   fetchFBOptions 
 };
