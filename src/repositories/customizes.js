@@ -20,7 +20,7 @@ const convertFtoB = (customize) => {
 };
 
 /**
- * Returns a cusomizes in firestore
+ * Returns cusomizes in firestore
  * @returns {Array} customizes data
  */
 const fetchCustomizes = async () => 
@@ -28,7 +28,7 @@ const fetchCustomizes = async () =>
     .then(res => res.map(convertBtoF));
 
 /**
- * Returns s cusomize in firestore
+ * Returns a cusomize in firestore
  * @returns {Object} customize data
  */
 const fetchCustomize = async (id) => 
