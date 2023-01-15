@@ -1,17 +1,17 @@
-import { fetchFBCustomizes } from "@/fb/services/customizeServices";
+import { fetchFBCustomizes, fetchFBCustomize } from "@/fb/services/customizeServices";
 
-const convertBtoF = (customizes) => {
-  const { date_created, mood_id, option_ids, ...rest } = customizes;
+const convertBtoF = (customize) => {
+  const { date_created, mood_id, option_ids, ...rest } = customize;
   return { 
     ...rest, 
-    dateCreated: date_created.toMillis(), 
+    dateCreated: date_created?.toMillis(), 
     moodId: mood_id, 
     optionIds: option_ids 
   };
 };
 
-const convertFtoB = (customizes) => {
-  const { dateCreated, moodId, ...rest } = customizes;
+const convertFtoB = (customize) => {
+  const { dateCreated, moodId, ...rest } = customize;
   return { 
     ...rest,
     date_created: dateCreated,
@@ -20,13 +20,22 @@ const convertFtoB = (customizes) => {
 };
 
 /**
- * Returns the sum of a and b 
+ * Returns a cusomizes in firestore
  * @returns {Array} customizes data
  */
 const fetchCustomizes = async () => 
   fetchFBCustomizes()
     .then(res => res.map(convertBtoF));
 
+/**
+ * Returns s cusomize in firestore
+ * @returns {Object} customize data
+ */
+const fetchCustomize = async (id) => 
+  fetchFBCustomize(id)
+    .then(res => convertBtoF(res));
+
 export const customizesImpl = {
-  fetchCustomizes
+  fetchCustomizes,
+  fetchCustomize
 };

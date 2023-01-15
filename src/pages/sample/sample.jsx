@@ -6,8 +6,6 @@ import sampleState from '@/store/atoms/sampleState';
 // no businesslogics
 const Sample = ({ customizes, smaple, handleClick }) => (
   <div>
-    {console.log(customizes)}
-
     {
       customizes.length && customizes.map(({
         id,
