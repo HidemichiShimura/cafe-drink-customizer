@@ -20,7 +20,8 @@ const MoodPage = ({
           key={id}
           id={id}
           name={moodName}
-          iconName={food.blackberry}
+          iconName={moodName}
+          isMood
           handleItemClick={handleMoodClick}
           isSelected={id === selectedMoodId}
         />
