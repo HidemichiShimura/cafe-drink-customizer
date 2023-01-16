@@ -1,11 +1,9 @@
-const CupIcon = ({src, alt}) => {
-    return (
-        <img 
+const CupIcon = ({src, alt}) => (
+        <img
             src={src}
             alt={alt}
         />
-    );
-};
+);
 
 const CupIconContainer = ({food}) => {
     const src = food === "" ? "icons/cup.png": `icons/cup-${food}.png`;
