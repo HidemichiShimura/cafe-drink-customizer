@@ -1,23 +1,20 @@
-import moodStyles from '@/styles/pages/mood.module.scss';
+import { CupIcon } from '@/components'
+import moodStyles from '@/styles/pages/mood.module.scss'
 
-const tempButtonStyle = { "width": "200px", "height": "200px" };
-
-const MoodSelectionItem = ({ 
-  id,
-  name,
-  handleItemClick, 
-  isSelected = false
-}) => (   
+const MoodSelectionItem = ({ id, name, handleItemClick, iconName, isSelected = false }) => (
   <div className={moodStyles.selectionItem}>
     <button
-      style={tempButtonStyle}
-      type="button" 
+      className={`${moodStyles.selectionItemButton} ${
+        isSelected && moodStyles.selectionItemButton_active
+      }`}
+      type='button'
       onClick={() => handleItemClick(id)}
-      >
-      {name} {isSelected && 'selected'}
+    >
+      <CupIcon food={iconName} />
     </button>
-    <p>{name}</p>
-  </div> 
-);
 
-export { MoodSelectionItem };
+    <p>{name}</p>
+  </div>
+)
+
+export { MoodSelectionItem }
