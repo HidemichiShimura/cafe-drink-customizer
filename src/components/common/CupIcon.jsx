@@ -9,7 +9,7 @@ const CupIcon = ({ src, alt, width, height }) => (
   />
 )
 
-const CupIconContainer = ({ food, width, height }) => {
+const CupIconContainer = ({ food = '', width = 100, height = 100 }) => {
   const src = food === '' ? '/icons/cup.png' : `/icons/cup-${food}.png`
   const alt = food === '' ? 'cup icon' : `${food} cup icon`
 
@@ -17,8 +17,8 @@ const CupIconContainer = ({ food, width, height }) => {
     <CupIcon
       src={src}
       alt={alt}
-      width={width || 100}
-      height={height || 100}
+      width={width}
+      height={height}
     />
   )
 }
