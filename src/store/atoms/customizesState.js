@@ -1,8 +1,8 @@
-import { atom } from 'recoil';
+import { atom } from 'recoil'
 
 const customizesState = atom({
   key: 'customizesState',
-  default: []
-});
+  default: [],
+})
 
-export default customizesState;
+export default customizesState

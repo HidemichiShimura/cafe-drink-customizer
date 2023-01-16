@@ -1,8 +1,8 @@
-import { atom } from 'recoil';
+import { atom } from 'recoil'
 
 const sampleState = atom({
   key: 'sampleState',
   default: 1,
-});
+})
 
-export default sampleState;
+export default sampleState
