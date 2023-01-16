@@ -1,61 +1,71 @@
 import React, { useCallback, useMemo } from 'react';
 import { useState } from 'react';
-
+import { useRouter } from 'next/router';
 import { backend } from '@/repositories';
+import { MoodSelectionLayout, MoodSelectionItem } from '@/components/pages/Mood';
+import { routes } from '@/utils/routes';
 
 const MoodPage = ({ 
   moods, 
+  selectedMoodId,
+  selectedMoodName,
+  filteredDrinks,
   handleMoodClick,
-  selectedMoodId
+  handleDrinkCustomClick
 }) => (
-  <div>
-    {
-      moods.map(mood => 
-        <TempMoodButton 
-          key={mood.id}
-          mood={mood}
-          handleMoodClick={handleMoodClick}
-          isSelected={mood.id === selectedMoodId}
-          />
-      )
-    }
-    <TempCustomSelected selectedMoodId={selectedMoodId} />
-  </div>
+  <>
+    <MoodSelectionLayout title={'Mood'}>
+      {
+        moods.map(mood => 
+          <MoodSelectionItem 
+            key={mood.id}
+            id={mood.id}
+            name={mood.moodName}
+            handleItemClick={handleMoodClick}
+            isSelected={mood.id === selectedMoodId}
+            />
+        )
+      }
+    </MoodSelectionLayout>
+
+    <MoodSelectionLayout title={selectedMoodName}>
+      {
+        filteredDrinks.length ? (
+          filteredDrinks.map(filteredDrink =>
+            <MoodSelectionItem 
+              key={filteredDrink.id}
+              id={filteredDrink.id}
+              name={filteredDrink.title}
+              handleItemClick={handleDrinkCustomClick}
+              />
+          )
+        )
+          : <p>No Items Found</p>
+        
+      }
+    </MoodSelectionLayout>
+  </>
 );
 
-const TempMoodButton = ({ 
-  mood: { id, moodName }, 
-  handleMoodClick,
-  isSelected
-}) => (    
-  <button 
-    type="button" 
-    onClick={() => handleMoodClick(id)}
-    >
-    {moodName} {isSelected && 'selected'}
-  </button>
-);
-
-const TempCustomSelected = ({ selectedMoodId }) => (
-  <div>{selectedMoodId}</div>
-);
 
 const MoodPageContainer = ({ customDrinks, moods }) => {
-  console.log(customDrinks, moods);
-  const [currMoodId, setCurrMoodId] = useState('');
-
-  console.log(currMoodId);
+  const router = useRouter();
+  const [selectedMood, setSelectedMood] = useState(null);
 
   const handleMoodClick = useCallback((id) => {
-    setCurrMoodId(id);
-  }, []);
+    const itemIdx = moods.findIndex(mood => mood.id === id);
+    if (itemIdx === -1) return;
+    setSelectedMood(moods[itemIdx]);
+  }, [moods]);
+
+  const handleDrinkCustomClick = useCallback((id) => {
+    router.push(`${routes.customizePage}${id}`);
+  }, [router]);
 
   const filteredDrinks = useMemo(() => {
     if (!customDrinks?.length) return [];
-    return customDrinks.filter(cd => cd.moodId === currMoodId);
-  }, [currMoodId, customDrinks]);
-
-  console.log(filteredDrinks);
+    return customDrinks.filter(cd => cd.moodId === selectedMood?.id);
+  }, [selectedMood, customDrinks]);
 
   return (
     <MoodPage 
@@ -64,13 +74,16 @@ const MoodPageContainer = ({ customDrinks, moods }) => {
           ? moods
           :[]
       }
+      selectedMoodId={selectedMood?.id ?? ''}
+      selectedMoodName={selectedMood?.moodName ?? ''}
+      filteredDrinks={filteredDrinks}
       handleMoodClick={handleMoodClick}
-      selectedMoodId={currMoodId}
+      handleDrinkCustomClick={handleDrinkCustomClick}
       />);
 };
 
 export const getStaticProps = async () => {
-  const customDrinks = await backend.customizes.fetchCustomizes();
+  const customDrinks = await backend.customDrinks.fetchCustomDrinks();
   const moods = await backend.moods.fetchMoods();
 
   return {
