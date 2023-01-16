@@ -1,9 +1,9 @@
-import { fetchFBOptions } from "@/fb/services/customDrinksServices";
+import { fetchFBOptions } from '@/fb/services/customDrinksServices'
 
 const convertBtoF = (options) => {
-  const { ...rest } = options;
-  return { ...rest, };
-};
+  const { ...rest } = options
+  return { ...rest }
+}
 
 // It won't be needed if there's no post request for moods
 // const convertFtoB = (moods) => {
@@ -12,13 +12,11 @@ const convertBtoF = (options) => {
 // };
 
 /**
- * Returns the sum of a and b 
+ * Returns the sum of a and b
  * @returns {Array} options data
  */
-const fetchOptions = async () => 
-  fetchFBOptions()
-    .then(res => res.map(convertBtoF));
+const fetchOptions = async () => fetchFBOptions().then((res) => res.map(convertBtoF))
 
 export const optionsImpl = {
-  fetchOptions
-};
+  fetchOptions,
+}
