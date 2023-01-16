@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --dir src",
+    "lint:fix": "next lint --dir src",
+    "format": "prettier --write --ignore-path .gitignore './src/**/*.{js,jsx,ts,tsx,json}'"
   },
   "dependencies": {
     "@next/font": "13.1.2",
@@ -19,6 +21,8 @@
     "recoil": "^0.7.6"
   },
   "devDependencies": {
+    "eslint-config-prettier": "^8.6.0",
+    "prettier": "^2.8.3",
     "sass": "^1.57.1"
   }
 }

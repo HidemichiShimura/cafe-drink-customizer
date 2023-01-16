@@ -1,8 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const SmapleItem = () => (
-  <div>SmapleItem</div>
-);
+const SmapleItem = () => <div>SmapleItem</div>
 
-
-export default SmapleItem;
+export default SmapleItem
