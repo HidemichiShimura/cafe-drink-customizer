@@ -1,8 +1,8 @@
-import { atom } from 'recoil';
+import { atom } from 'recoil'
 
 const moodsState = atom({
   key: 'moodsState',
-  default: []
-});
+  default: [],
+})
 
-export default moodsState;
+export default moodsState

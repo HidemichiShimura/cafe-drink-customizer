@@ -1,9 +1,9 @@
-import { fetchFBMoods } from "@/fb/services/customDrinksServices";
+import { fetchFBMoods } from '@/fb/services/customDrinksServices'
 
 const convertBtoF = (moods) => {
-  const { mood_name, ...rest } = moods;
-  return { ...rest, moodName: mood_name };
-};
+  const { mood_name, ...rest } = moods
+  return { ...rest, moodName: mood_name }
+}
 
 // It won't be needed if there's no post request for moods
 // const convertFtoB = (moods) => {
@@ -12,13 +12,11 @@ const convertBtoF = (moods) => {
 // };
 
 /**
- * Returns the sum of a and b 
+ * Returns the sum of a and b
  * @returns {Array} moods data
  */
-const fetchMoods = async () => 
-  fetchFBMoods()
-    .then(res => res.map(convertBtoF));
+const fetchMoods = async () => fetchFBMoods().then((res) => res.map(convertBtoF))
 
 export const moodsImpl = {
-  fetchMoods
-};
+  fetchMoods,
+}

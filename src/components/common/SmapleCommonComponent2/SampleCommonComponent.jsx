@@ -1,8 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const SampleCommonComponent = () => (
-  <div>SampleCommonComponent</div>
-);
+const SampleCommonComponent = () => <div>SampleCommonComponent</div>
 
-
-export default SampleCommonComponent;
+export default SampleCommonComponent
