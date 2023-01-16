@@ -9,7 +9,7 @@ const MoodIcon = ({ src, alt, width, height }) => (
   />
 )
 
-const MoodIconContainer = ({ mood, width, height }) => {
+const MoodIconContainer = ({ mood = '', width = 100, height = 100 }) => {
   const src = `/icons/${mood}.png`
   const alt = `${mood} icon`
 
@@ -17,8 +17,8 @@ const MoodIconContainer = ({ mood, width, height }) => {
     <MoodIcon
       src={src}
       alt={alt}
-      width={width || 100}
-      height={height || 100}
+      width={width}
+      height={height}
     />
   )
 }
