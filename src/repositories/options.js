@@ -1,8 +1,8 @@
 import { fetchFBOptions } from '@/fb/services/customDrinksServices'
 
 const convertBtoF = (options) => {
-  const { ...rest } = options
-  return { ...rest }
+  const { option_name, ...rest } = options
+  return { ...rest, optionName: option_name }
 }
 
 // It won't be needed if there's no post request for moods
