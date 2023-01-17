@@ -5,8 +5,8 @@ import styles from '../../../styles/common/Header/HeaderLogo.module.scss'
 const HeaderLogo = () => {
   return (
     <div className={styles['logo-container']}>
-      <a href='#'>
-        <Image src={Logo} alt={'header-logo'} />
+      <a className={styles['logo-link']} href='#'>
+        <Image className={styles['header-logo']} src={Logo} alt={'header-logo'} />
       </a>
     </div>
   )

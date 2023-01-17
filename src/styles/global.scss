@@ -11,6 +11,7 @@
   color: #3d3935;
   --main-color: #237a57;
   --sub-color: #f2f0eac8;
+  --transition: all 400ms ease;
 
   /* color-scheme: light dark;
 
@@ -42,6 +43,7 @@ h1 {
 
 a {
   text-decoration: none;
+  transition: var(--transition);
 }
 
 li {

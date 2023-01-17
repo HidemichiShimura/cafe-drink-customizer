@@ -1,0 +1,11 @@
+.nav-content {
+  padding-right: 20px;
+
+  .nav-content-link {
+    color: #3d3935;
+
+    &:hover {
+      color: var(--main-color);
+    }
+  }
+}
