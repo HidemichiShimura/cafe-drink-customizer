@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import PageLayout from '@/components'
 
 export default function Home({ children }) {
   return (
@@ -19,12 +20,9 @@ export default function Home({ children }) {
         />
       </Head>
       <main>
-        <>
-          {/* Header */}
-          {/* Banner */}
-          <div style={{ 'max-width': '90%' }}>{children}</div>
-          {/* Footer */}
-        </>
+        <PageLayout>
+          <div>LP</div>
+        </PageLayout>
       </main>
     </>
   )
