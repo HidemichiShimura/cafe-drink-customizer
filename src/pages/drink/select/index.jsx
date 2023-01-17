@@ -16,7 +16,7 @@ const MoodPage = ({
   handleMoodClick,
   handleDrinkCustomClick,
 }) => (
-  <>
+  <div>
     <MoodSelectionLayout title={'Mood'}>
       {moods.map(({ id, moodName }) => (
         <MoodSelectionItem
@@ -46,7 +46,7 @@ const MoodPage = ({
         <p>No Items Found</p>
       )}
     </MoodSelectionLayout>
-  </>
+  </div>
 )
 
 const MoodPageContainer = ({ customDrinks, moods }) => {
