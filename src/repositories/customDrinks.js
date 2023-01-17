@@ -5,12 +5,13 @@ import {
 } from '@/fb/services/customDrinksServices'
 
 const convertBtoF = (customDrink) => {
-  const { date_created, mood_id, option_ids, ...rest } = customDrink
+  const { date_created, mood_id, option_ids, icon_name, ...rest } = customDrink
   return {
     ...rest,
     dateCreated: date_created?.toMillis(),
     moodId: mood_id,
     optionIds: option_ids,
+    iconName: icon_name,
   }
 }
 

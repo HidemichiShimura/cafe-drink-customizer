@@ -1,18 +1,18 @@
 @font-face {
-	font-family: "Noto Sans";
-	src: url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600&display=swap");
+  font-family: 'Noto Sans';
+  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600&display=swap');
 }
 
 :root {
-	font-family: "Noto Sans", Arial, sans-serif;
-	font-size: 16px;
-	line-height: 24px;
-	font-weight: 400;
-	color: #3d3935;
-	--main-color: #237a57;
-	--sub-color: #f2f0eac8;
+  font-family: 'Noto Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #3d3935;
+  --main-color: #237a57;
+  --sub-color: #f2f0eac8;
 
-	/* color-scheme: light dark;
+  /* color-scheme: light dark;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -26,16 +26,14 @@
 
 body,
 #root {
-	margin: 0;
-	display: flex;
-	place-items: center;
-	width: 100%;
-	min-width: 320px;
-	min-height: 100vh;
-	height: 100vh;
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  height: 100vh;
 }
 
 h1 {
-	/* font-size: 3.2em;
+  /* font-size: 3.2em;
     line-height: 1.1; */
 }
