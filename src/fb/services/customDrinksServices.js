@@ -1,4 +1,4 @@
-import { collection, getDocs, getDoc, doc } from 'firebase/firestore'
+import { collection, getDocs, getDoc, addDoc, doc, Timestamp } from 'firebase/firestore'
 import { db } from '../configFirestore'
 
 const restructuringData = (doc) => ({ ...doc.data(), id: doc.id })
@@ -36,4 +36,36 @@ const fetchFBOptions = async () => {
     })
 }
 
-export { fetchFBCustomDrinks, fetchFBCustomDrink, fetchFBMoods, fetchFBOptions }
+const postFBCustomDrink = async (data) => {
+  if (!data) throw new Error('Failed to read data')
+  return addDoc(collection(db, 'custom_drinks'), {
+    date_created: Timestamp.fromDate(new Date(new Date().toLocaleDateString())),
+    ...data,
+  }).catch((_) => {
+    throw new Error('Error with postFBCustomDrink')
+  })
+}
+
+const postFBOption = async (data) => {
+  if (!data) throw new Error('Failed to read option')
+  return addDoc(collection(db, 'options'), { option_name: data }).catch((_) => {
+    throw new Error('Error with postFBOption')
+  })
+}
+
+const postFBMood = async (data) => {
+  if (!data) throw new Error('Failed to read mood')
+  return addDoc(collection(db, 'moods'), { mood_name: data }).catch((_) => {
+    throw new Error('Error with postFBMood')
+  })
+}
+
+export {
+  fetchFBCustomDrinks,
+  fetchFBCustomDrink,
+  fetchFBMoods,
+  fetchFBOptions,
+  postFBCustomDrink,
+  postFBOption,
+  postFBMood,
+}

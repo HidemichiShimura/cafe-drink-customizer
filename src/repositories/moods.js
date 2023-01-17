@@ -1,4 +1,4 @@
-import { fetchFBMoods } from '@/fb/services/customDrinksServices'
+import { fetchFBMoods, postFBMood } from '@/fb/services/customDrinksServices'
 
 const convertBtoF = (moods) => {
   const { mood_name, ...rest } = moods
@@ -17,6 +17,13 @@ const convertBtoF = (moods) => {
  */
 const fetchMoods = async () => fetchFBMoods().then((res) => res.map(convertBtoF))
 
+/**
+ * Post a new mood in firestore
+ * @param {Object} data mood data
+ */
+const postMood = async (data) => postFBMood(data)
+
 export const moodsImpl = {
   fetchMoods,
+  postMood,
 }
