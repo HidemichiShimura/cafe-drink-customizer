@@ -1,8 +1,11 @@
 import { useRouter } from 'next/router'
 import React, { useCallback, useMemo, useState } from 'react'
-import { MoodSelectionLayout, MoodSelectionItem } from '@/components'
+import {
+  MoodSelectionLayout,
+  MoodSelectionItem,
+  PageLayout,
+} from '@/components'
 import { backend } from '@/repositories'
-import { food } from '@/utils/imageConstants'
 import { routes } from '@/utils/routes'
 
 const MoodPage = ({
@@ -72,14 +75,16 @@ const MoodPageContainer = ({ customDrinks, moods }) => {
   }, [selectedMood, customDrinks])
 
   return (
-    <MoodPage
-      moods={moods?.length ? moods : []}
-      selectedMoodId={selectedMood?.id ?? ''}
-      selectedMoodName={selectedMood?.moodName ?? ''}
-      filteredDrinks={filteredDrinks}
-      handleMoodClick={handleMoodClick}
-      handleDrinkCustomClick={handleDrinkCustomClick}
-    />
+    <PageLayout>
+      <MoodPage
+        moods={moods?.length ? moods : []}
+        selectedMoodId={selectedMood?.id ?? ''}
+        selectedMoodName={selectedMood?.moodName ?? ''}
+        filteredDrinks={filteredDrinks}
+        handleMoodClick={handleMoodClick}
+        handleDrinkCustomClick={handleDrinkCustomClick}
+      />
+    </PageLayout>
   )
 }
 

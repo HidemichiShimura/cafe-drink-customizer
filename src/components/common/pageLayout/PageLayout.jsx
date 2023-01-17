@@ -5,7 +5,16 @@ const PageLayout = ({ children }) => {
     <>
       {/* Header */}
       {/* Banner */}
-      <div style={{ 'max-width': '90%' }}>{children}</div>
+      <div
+        style={{
+          'max-width': '90%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        {children}
+      </div>
       {/* Footer */}
     </>
   )
