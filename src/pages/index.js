@@ -1,5 +1,7 @@
 import Head from 'next/head'
-import PageLayout from '@/components'
+
+import PageLayout, { Header } from '@/components'
+
 
 export default function Home({ children }) {
   return (
@@ -19,7 +21,9 @@ export default function Home({ children }) {
           href='/favicon.ico'
         />
       </Head>
+
       <main>
+      <Header />
         <PageLayout>
           <div>LP</div>
         </PageLayout>
