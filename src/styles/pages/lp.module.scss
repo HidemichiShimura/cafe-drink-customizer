@@ -1,0 +1,19 @@
+@use '../abstracts' as a;
+@use '../mixin/' as m;
+
+.container {
+  width: 300px;
+  background-color: #f2f0ea;
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  position: relative;
+  top: -30px;
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
+}
