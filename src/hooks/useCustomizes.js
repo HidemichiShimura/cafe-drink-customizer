@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useRecoilState } from 'recoil'
-import customizesState from 'store/atoms/customizesState'
 import { backend } from 'repositories'
+import customizesState from 'store/atoms/customizesState'
 
 // custom hook which will return isFetching, newsList, fetchNewsList
 const useCustomizes = () => {
