@@ -1,9 +1,10 @@
 import React from 'react'
+import { Header } from '../../index'
 
 const PageLayout = ({ children }) => {
   return (
     <>
-      {/* Header */}
+      <Header />
       {/* Banner */}
       <div
         style={{

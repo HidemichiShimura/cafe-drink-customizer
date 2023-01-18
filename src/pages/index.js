@@ -1,7 +1,6 @@
 import Head from 'next/head'
 
-import PageLayout, { Header } from '@/components'
-
+import { PageLayout } from '@/components'
 
 export default function Home({ children }) {
   return (
@@ -23,7 +22,6 @@ export default function Home({ children }) {
       </Head>
 
       <main>
-      <Header />
         <PageLayout>
           <div>LP</div>
         </PageLayout>
