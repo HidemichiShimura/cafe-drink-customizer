@@ -7,10 +7,13 @@ const PageLayout = ({ children }) => {
       {/* Banner */}
       <div
         style={{
-          'max-width': '90%',
+          maxWidth: '90%',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          justifyContent: 'center',
+          margin: '0 auto',
+          height: '100vh',
         }}
       >
         {children}

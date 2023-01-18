@@ -1,0 +1,23 @@
+@use '@/styles/abstracts' as a;
+@use '@/styles/mixin' as m;
+
+.nav-content {
+  padding-right: 20px;
+
+  .nav-content-link {
+    color: a.$clrMainGray;
+
+    &:hover {
+      color: a.$clrMainGreen;
+    }
+
+    @include m.mobile {
+      color: a.$clrWhite;
+      font-size: 1.6rem;
+    }
+  }
+
+  @include m.mobile {
+    padding: 0 0 2rem 0;
+  }
+}
