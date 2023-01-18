@@ -1,22 +1,42 @@
+import { PageLayout, CustomizeUpper, CustomizeLower } from '@/components'
 import { backend } from '@/repositories'
 
 // no businesslogics
-const CustomDrink = ({ customDrink }) => (
+const CustomDrink = ({ iconName, title, description, optionNames }) => (
   <div>
-    {customDrink &&
-      Object.keys(customDrink).map((c) => (
-        <div key={c}>
-          {c} {'=>'} {customDrink[c]}
-        </div>
-      ))}
+    <CustomizeUpper
+      iconName={iconName}
+      title={title}
+      optionNames={optionNames}
+    />
+    <CustomizeLower description={description} />
   </div>
 )
+
+const CustomDrinkContainer = ({ customDrink, options }) => {
+  if (!customDrink || !Array.isArray(options)) return null
+
+  const optionNames = customDrink.optionIds?.map(
+    (oId) => options.find((o) => o.id === oId)?.option_name,
+  )
+
+  return (
+    <PageLayout>
+      <CustomDrink
+        optionNames={optionNames}
+        {...customDrink}
+      />
+    </PageLayout>
+  )
+}
 
 export const getStaticProps = async ({ params }) => {
   const { id } = params
   const customDrink = await backend.customDrinks.fetchCustomDrink(id)
+  const options = await backend.options.fetchOptions()
+
   return {
-    props: { customDrink },
+    props: { customDrink, options },
   }
 }
 
@@ -30,4 +50,4 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export default CustomDrink
+export default CustomDrinkContainer

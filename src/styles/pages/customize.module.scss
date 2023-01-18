@@ -1,0 +1,54 @@
+@use "@/styles/abstracts" as a;
+@use "@/styles/mixin" as m;
+
+.customize {
+    &UpperSec {
+        width: 100%;
+        display: flex;
+
+        @include m.tablet {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &ImgContainer {
+        @include m.imageContainer;
+        background-color: a.$clrSelected;
+        margin-right: 50px;
+
+        @include m.tablet {
+            margin-right: 0px;
+        }
+    }
+
+    &DescContainer {
+        & h3 {
+            border-bottom: solid 1px #222;
+        }
+    }
+
+    &OptionName {
+        max-width: 150px;
+        border: solid 0.5px #222;
+        border-radius: 20px;
+        padding: 5px 5px 5px 17px;
+        margin-bottom: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    &LowerSec {
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+
+        @include m.tablet {
+
+            & h3 {
+                text-align: center;
+            }
+        }
+    }
+}
