@@ -1,9 +1,6 @@
 .nav-menu-container {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-
-  .nav-menu {
-    display: flex;
-  }
+  height: 100%;
+  margin: 0;
 }

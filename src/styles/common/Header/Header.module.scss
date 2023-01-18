@@ -1,15 +1,90 @@
-.header {
-  width: 100%;
-}
+@use '@/styles/mixin' as m;
 
-.container {
+.nav-bar {
   position: fixed;
   z-index: 10;
-  top: 0;
-  background-color: pink;
-  // background-color: rgba(255, 255, 255, 0.826);
+  background-color: #ffffff;
   width: 100%;
   height: 5rem;
   display: flex;
   justify-content: space-between;
+
+  .burger-menu {
+    display: none;
+  }
+  @include m.mobile {
+    .burger-menu {
+      height: 3rem;
+      width: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 1rem;
+      margin-right: 10px;
+
+      .burger-bar {
+        width: 3.5rem;
+        height: 0.5rem;
+        background-color: #000;
+        opacity: 0.6;
+        border-radius: 0.3rem;
+        transform: rotate(0) translate(0);
+        transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+      }
+      .burger-bar-clicked {
+        width: 3.5rem;
+        height: 0.5rem;
+        background-color: #000;
+        opacity: 0.6;
+        border-radius: 0.3rem;
+
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(0.75em, 1.25em);
+          transition: ease-out 0.5s;
+        }
+
+        &:nth-child(2) {
+          transform: scale(0.1);
+          transition: ease-out 0.5s;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(135deg) translate(-0.5em, 1em);
+          transition: ease-out 0.5s;
+        }
+      }
+    }
+  }
+
+  .menu-hidden {
+    display: none;
+  }
+
+  .menu-visible {
+    @include m.mobile {
+      width: 100%;
+      height: 100vh;
+      background-color: #1b1310;
+      opacity: 0.4;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      justify-content: center;
+      display: inherit;
+    }
+  }
+
+  .menu-hidden {
+    @include m.mobile {
+      display: none;
+    }
+  }
+
+  .nav-menu {
+    @include m.mobile {
+      display: none;
+    }
+  }
 }

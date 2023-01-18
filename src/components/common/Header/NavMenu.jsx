@@ -3,11 +3,9 @@ import { NavContent } from '../../index'
 
 const NavMenu = () => {
   return (
-    <nav className={styles['nav-menu-container']}>
-      <ul className={styles['nav-menu']}>
-        <NavContent />
-      </ul>
-    </nav>
+    <ul className={styles['nav-menu-container']}>
+      <NavContent />
+    </ul>
   )
 }
 
