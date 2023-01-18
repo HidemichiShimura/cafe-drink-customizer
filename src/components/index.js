@@ -16,3 +16,4 @@ export { default as PageLayout } from './common/pageLayout/PageLayout'
  * LP
  */
 export { default as LPAppDescription } from './pages/LP/LPAppDescription'
+export { default as LPSectionLayout } from './pages/LP/LPSectionLayout'
