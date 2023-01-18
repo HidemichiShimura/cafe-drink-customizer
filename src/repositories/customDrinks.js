@@ -1,12 +1,13 @@
 import { fetchFBCustomDrinks, fetchFBCustomDrink } from '@/fb/services/customDrinksServices'
 
 const convertBtoF = (customDrink) => {
-  const { date_created, mood_id, option_ids, ...rest } = customDrink
+  const { date_created, mood_id, option_ids, icon_name, ...rest } = customDrink
   return {
     ...rest,
     dateCreated: date_created?.toMillis(),
     moodId: mood_id,
     optionIds: option_ids,
+    iconName: icon_name,
   }
 }
 
@@ -16,6 +17,8 @@ const convertFtoB = (customDrink) => {
     ...rest,
     date_created: dateCreated,
     mood_id: moodId,
+    option_ids: optionIds,
+    icon_name: iconName,
   }
 }
 
