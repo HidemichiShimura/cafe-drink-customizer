@@ -26,4 +26,4 @@ export { default as NavContent } from './common/Header/NavContent'
  * LP
  */
 export { default as LPAppDescription } from './pages/LP/LPAppDescription'
-
+export { default as LPSectionLayout } from './pages/LP/LPSectionLayout'
