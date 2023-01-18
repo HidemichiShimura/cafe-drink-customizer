@@ -1,5 +1,5 @@
-import styles from '../../../styles/common/Header/BurgerNavMenu.module.scss'
 import { NavContent } from '../../index'
+import styles from '@/styles/common/Header/BurgerNavMenu.module.scss'
 
 const BurgerNavMenu = () => {
   return (

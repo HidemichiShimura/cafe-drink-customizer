@@ -1,3 +1,4 @@
+@use '@/styles/abstracts' as a;
 @font-face {
   font-family: 'Noto Sans';
   src: url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600&display=swap');
@@ -11,7 +12,6 @@
   color: #3d3935;
   --main-color: #237a57;
   --sub-color: #f2f0eac8;
-  --transition: all 400ms ease;
 
   /* color-scheme: light dark;
 
@@ -34,7 +34,7 @@ body,
 
 a {
   text-decoration: none;
-  transition: var(--transition);
+  transition: a.$linkTransition;
 }
 
 li {

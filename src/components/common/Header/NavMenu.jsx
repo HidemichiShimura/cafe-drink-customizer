@@ -1,5 +1,5 @@
-import styles from '../../../styles/common/Header/NavMenu.module.scss'
 import { NavContent } from '../../index'
+import styles from '@/styles/common/Header/NavMenu.module.scss'
 
 const NavMenu = () => {
   return (

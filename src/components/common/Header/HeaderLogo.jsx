@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Logo from '../../../../public/icons/header-logo.png'
-import styles from '../../../styles/common/Header/HeaderLogo.module.scss'
+import Logo from 'public/icons/header-logo.png'
+import styles from '@/styles/common/Header/HeaderLogo.module.scss'
 
 const HeaderLogo = () => {
   return (

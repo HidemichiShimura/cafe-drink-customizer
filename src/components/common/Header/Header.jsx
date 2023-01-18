@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import styles from '../../../styles/common/Header/Header.module.scss'
 import { HeaderLogo, NavMenu, BurgerNavMenu } from '../../index'
+import styles from '@/styles/common/Header/Header.module.scss'
 
 const Header = () => {
   const [burger_class, setBurgerClass] = useState('burger-bar')

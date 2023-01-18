@@ -1,4 +1,4 @@
-import styles from '../../../styles/common/Header/NavContent.module.scss'
+import styles from '@/styles/common/Header/NavContent.module.scss'
 
 const NAV_ITEMS = ['XXXXX', 'XXXXX', 'XXXXX']
 const NavContent = () => {
