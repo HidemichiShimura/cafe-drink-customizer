@@ -1,17 +1,5 @@
-import { PageLayout, CustomizeUpper, CustomizeLower } from '@/components'
+import { PageLayout, CustomizeMain } from '@/components'
 import { backend } from '@/repositories'
-
-// no businesslogics
-const CustomDrink = ({ iconName, title, description, optionNames }) => (
-  <div>
-    <CustomizeUpper
-      iconName={iconName}
-      title={title}
-      optionNames={optionNames}
-    />
-    <CustomizeLower description={description} />
-  </div>
-)
 
 const CustomDrinkContainer = ({ customDrink, options }) => {
   if (!customDrink || !Array.isArray(options)) return null
@@ -22,7 +10,7 @@ const CustomDrinkContainer = ({ customDrink, options }) => {
 
   return (
     <PageLayout>
-      <CustomDrink
+      <CustomizeMain
         optionNames={optionNames}
         {...customDrink}
       />
