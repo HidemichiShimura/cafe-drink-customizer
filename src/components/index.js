@@ -12,6 +12,16 @@ export { default as Banner } from './common/banner/Banner'
 export { default as BannerContent } from './common/banner/BannerContent'
 export { default as PageLayout } from './common/pageLayout/PageLayout'
 
+/**
+ * Header
+ */
+
+export { default as Header } from './common/Header/Header'
+export { default as HeaderLogo } from './common/Header/HeaderLogo'
+export { default as NavMenu } from './common/Header/NavMenu'
+export { default as BurgerNavMenu } from './common/Header/BurgerNavMenu'
+export { default as NavContent } from './common/Header/NavContent'
+
 /*
  * LP
  */
