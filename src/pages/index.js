@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { LPSectionLayout, Button } from '@/components'
 
 import { PageLayout } from '@/components'
 
@@ -24,6 +25,12 @@ export default function Home({ children }) {
       <main>
         <PageLayout>
           <div>LP</div>
+          <LPSectionLayout>
+            <Button
+              buttonContent={'Get started'}
+              link={'home'}
+            />
+          </LPSectionLayout>
         </PageLayout>
       </main>
     </>
