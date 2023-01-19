@@ -2,10 +2,11 @@
 @use '@/styles/mixin' as m;
 
 .nav-content {
-  padding-right: 20px;
+  padding-right: 30px;
 
   .nav-content-link {
     color: a.$clrTextCommon;
+    font-size: 1.4rem;
 
     &:hover {
       color: a.$clrMainGreen;
