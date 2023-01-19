@@ -28,7 +28,8 @@ export { default as NavContent } from './common/Header/NavContent'
 export { default as Footer } from './common/Footer/Footer'
 
 /*
- * LP
+ * About
  */
 export { default as AboutAppDescription } from './pages/About/AboutAppDescription'
 export { default as AboutSectionLayout } from './pages/About/AboutSectionLayout'
+export { default as SectionTypeList } from './pages/about/SectionTypeList'
