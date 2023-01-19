@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { LPSectionLayout, LinkButton, PageLayout } from '@/components'
+import { AboutSectionLayout, LinkButton, PageLayout } from '@/components'
 
 const About = () => {
   return (
@@ -23,12 +23,12 @@ const About = () => {
 
       <main>
         <PageLayout>
-          <LPSectionLayout>
+          <AboutSectionLayout title={'Can’t wait to start?'}>
             <LinkButton
               buttonContent={'Get started'}
               link={'/'}
             />
-          </LPSectionLayout>
+          </AboutSectionLayout>
         </PageLayout>
       </main>
     </>
