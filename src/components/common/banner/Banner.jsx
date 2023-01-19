@@ -1,11 +1,35 @@
-import styles from '../../../styles/common/banner/banner.module.scss'
-import { BannerContent } from '../../index'
+import { useRouter } from 'next/router'
 
+import styles from '@/styles/common/banner/banner.module.scss'
 
-const Banner = ({ type = '' }) => (
+const Banner = ({ content }) => (
   <div className={styles['banner']}>
-    <BannerContent type={type} />
+    <div className={styles['banner-content']}>{content}</div>
   </div>
 )
 
-export default Banner
+const BannerContainer = () => {
+  const Router = useRouter()
+  const Path = Router.pathname
+  const Content =
+    Path === '/about' ? (
+      <>
+        <h1>
+          <span>CAFE DRINK</span> CUSTOMIZER
+        </h1>
+        <p>
+          Are you unsure about what to order or how to customize your drink?
+          <br />
+          Here’s what you need!
+        </p>
+      </>
+    ) : (
+      <h1>
+        <span>Discover Your</span> Favorites
+      </h1>
+    )
+
+  return <Banner content={Content} />
+}
+
+export default BannerContainer

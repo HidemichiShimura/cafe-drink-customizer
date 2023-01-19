@@ -1,11 +1,11 @@
 import React from 'react'
-import { Header, Footer } from '../../index'
+import { Header, Banner, Footer } from '../../index'
 
 const PageLayout = ({ children }) => {
   return (
     <>
       <Header />
-      {/* Banner */}
+      <Banner />
       <div
         style={{
           maxWidth: '90%',
