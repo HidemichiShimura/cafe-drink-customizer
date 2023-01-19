@@ -1,0 +1,10 @@
+@use '@/styles/abstracts' as a;
+
+.footer-container {
+  text-align: center;
+  border-top: solid 1px a.$clrTextCommon;
+
+  .footer-content {
+    margin: 1.5rem 0;
+  }
+}
