@@ -2,7 +2,7 @@ import Head from 'next/head'
 
 import { LPSectionLayout, LinkButton, PageLayout } from '@/components'
 
-export default function Home({ children }) {
+const About = () => {
   return (
     <>
       <Head>
@@ -26,7 +26,7 @@ export default function Home({ children }) {
           <LPSectionLayout>
             <LinkButton
               buttonContent={'Get started'}
-              link={'home'}
+              link={'/'}
             />
           </LPSectionLayout>
         </PageLayout>
@@ -34,3 +34,5 @@ export default function Home({ children }) {
     </>
   )
 }
+
+export default About
