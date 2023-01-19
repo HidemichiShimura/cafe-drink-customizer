@@ -3,7 +3,6 @@ import { LPSectionLayout, LinkButton } from '@/components'
 
 import { PageLayout } from '@/components'
 
-
 export default function Home({ children }) {
   return (
     <>
@@ -25,7 +24,6 @@ export default function Home({ children }) {
 
       <main>
         <PageLayout>
-          <div>LP</div>
           <LPSectionLayout>
             <LinkButton
               buttonContent={'Get started'}
