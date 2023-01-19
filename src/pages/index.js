@@ -1,6 +1,8 @@
 import Head from 'next/head'
+import { LPSectionLayout, LinkButton } from '@/components'
 
-import { PageLayout, Header } from '@/components'
+import { PageLayout } from '@/components'
+
 
 export default function Home({ children }) {
   return (
@@ -22,9 +24,14 @@ export default function Home({ children }) {
       </Head>
 
       <main>
-        <Header />
         <PageLayout>
           <div>LP</div>
+          <LPSectionLayout>
+            <LinkButton
+              buttonContent={'Get started'}
+              link={'home'}
+            />
+          </LPSectionLayout>
         </PageLayout>
       </main>
     </>

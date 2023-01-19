@@ -1,0 +1,14 @@
+@use '@/styles/abstracts' as a;
+
+.button-link {
+  background-color: a.$clrMainGreen;
+  padding: 1.5rem 2.5rem;
+  color: a.$clrWhite;
+  font-size: 2rem;
+  border-radius: 20px;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    background: a.$clrTextCommon;
+  }
+}
