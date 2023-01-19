@@ -8,7 +8,7 @@ const AboutSectionLayout = ({ title = '', description, children }) => {
         {description && <p className={styles.description}>{description}</p>}
       </div>
 
-      <div>{children}</div>
+      <div className={styles.sectionChildren}>{children}</div>
     </section>
   )
 }

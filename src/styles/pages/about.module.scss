@@ -1,4 +1,5 @@
 @use '../abstracts' as a;
+@use '@/styles/mixin' as m;
 
 .container {
   width: 300px;
@@ -26,14 +27,30 @@
   .titleContainer {
     margin-bottom: 4rem;
     font-size: 2rem;
+    width: 100%;
 
     .title {
       text-align: center;
+
+      @include m.mobile {
+        font-size: 2rem;
+      }
     }
+
     .description {
       text-align: center;
       width: 70%;
       font-size: 1.5rem;
+      margin: 0 auto;
+
+      @include m.mobile {
+        font-size: 1rem;
+      }
     }
+  }
+
+  .sectionChildren {
+    width: 100%;
+    text-align: center;
   }
 }
