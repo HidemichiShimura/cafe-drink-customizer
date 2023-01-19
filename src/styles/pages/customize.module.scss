@@ -2,6 +2,7 @@
 @use "@/styles/mixin" as m;
 
 .customize {
+
     &UpperSec {
         width: 100%;
         display: flex;
@@ -32,7 +33,7 @@
         max-width: 150px;
         border: solid 0.5px #222;
         border-radius: 20px;
-        padding: 5px 5px 5px 17px;
+        padding: 5px 10px 5px 17px;
         margin-bottom: 10px;
         text-overflow: ellipsis;
         white-space: nowrap;

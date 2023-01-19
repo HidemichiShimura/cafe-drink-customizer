@@ -1,15 +1,16 @@
 @use '@/styles/mixin' as m;
+@use '@/styles/abstracts' as a;
 
 .banner {
   width: 100%;
   background-color: var(--main-color);
   text-align: center;
-  padding: 3rem;
-  position: relative;
-  top: 5rem;
+  padding: 48px 0;
+  margin-top: a.$headerHeight;
 }
 
 .banner-content {
+
   h1,
   p {
     margin: 0;

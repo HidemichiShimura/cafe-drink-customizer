@@ -2,8 +2,8 @@ import Link from 'next/link'
 import styles from '@/styles/common/Header/NavContent.module.scss'
 
 const NAV_ITEMS = ['About']
-const NavContent = () => {
-  return NAV_ITEMS.map((item, idx) => (
+const NavContent = () =>
+  NAV_ITEMS.map((item, idx) => (
     <li
       className={styles['nav-content']}
       key={idx}
@@ -16,5 +16,5 @@ const NavContent = () => {
       </Link>
     </li>
   ))
-}
+
 export default NavContent
