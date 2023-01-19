@@ -10,7 +10,7 @@ const NavContent = () => {
     >
       <Link
         className={styles['nav-content-link']}
-        href={item.toLowerCase()}
+        href={`/${item.toLowerCase()}`}
       >
         {item}
       </Link>
