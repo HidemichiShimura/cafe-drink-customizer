@@ -23,6 +23,11 @@ export { default as NavMenu } from './common/Header/NavMenu'
 export { default as BurgerNavMenu } from './common/Header/BurgerNavMenu'
 export { default as NavContent } from './common/Header/NavContent'
 
+/**
+ * Footer
+ */
+export { default as Footer } from './common/Footer/Footer'
+
 /*
  * LP
  */

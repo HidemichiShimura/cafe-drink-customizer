@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from '../../index'
+import { Header, Footer } from '../../index'
 
 const PageLayout = ({ children }) => {
   return (
@@ -19,7 +19,7 @@ const PageLayout = ({ children }) => {
       >
         {children}
       </div>
-      {/* Footer */}
+      <Footer />
     </>
   )
 }

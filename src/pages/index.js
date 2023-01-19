@@ -1,8 +1,5 @@
 import Head from 'next/head'
-import { LPSectionLayout, LinkButton } from '@/components'
-
-import { PageLayout } from '@/components'
-
+import { LPSectionLayout, LinkButton, PageLayout } from '@/components'
 
 export default function Home({ children }) {
   return (
