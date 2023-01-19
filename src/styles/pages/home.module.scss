@@ -1,0 +1,8 @@
+@use '@/styles/abstracts' as a;
+
+.selectionName {
+  font-size: 2rem;
+  color: a.$clrTextCommon;
+  text-align: center;
+  margin: 0;
+}
