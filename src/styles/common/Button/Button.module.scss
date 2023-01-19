@@ -1,14 +1,29 @@
 @use '@/styles/abstracts' as a;
+@use '@/styles/mixin' as m;
 
-.button-link {
-  background-color: a.$clrMainGreen;
-  padding: 1.5rem 2.5rem;
-  color: a.$clrWhite;
-  font-size: 2rem;
-  border-radius: 20px;
-  transition: 0.3s ease-in-out;
+.button-container {
+  width: 100%;
+  .button-link {
+    background-color: a.$clrMainGreen;
+    padding: 1.5rem 2.5rem;
+    color: a.$clrWhite;
+    font-size: 2rem;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
+    width: 30%;
+    display: inline-block;
 
-  &:hover {
-    background: a.$clrTextCommon;
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+
+    &:hover {
+      background: a.$clrTextCommon;
+    }
+
+    @include m.mobile {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
   }
 }

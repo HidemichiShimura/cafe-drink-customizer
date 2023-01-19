@@ -29,11 +29,15 @@
     font-size: 2rem;
     width: 100%;
 
+    @include m.mobile {
+      margin-bottom: 2rem;
+    }
+
     .title {
       text-align: center;
 
       @include m.mobile {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
     }
 

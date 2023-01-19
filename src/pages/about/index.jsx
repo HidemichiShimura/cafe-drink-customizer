@@ -23,12 +23,7 @@ const About = () => {
 
       <main>
         <PageLayout>
-          <AboutSectionLayout
-            title={'Can’t wait to start?'}
-            description={
-              ' Have you faced these moments at a cafe, “I don’t know what to order...or I dont know what options the drink has...'
-            }
-          >
+          <AboutSectionLayout title={'Can’t wait to start?'}>
             <LinkButton
               buttonContent={'Get started'}
               link={'/'}
