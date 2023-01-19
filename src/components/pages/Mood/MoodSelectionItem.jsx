@@ -21,13 +21,13 @@ const MoodSelectionItem = ({
     >
       {isMood ? (
         <MoodIcon
-          mood={iconName}
+          mood={iconName.toLowerCase()}
           width={150}
           height={150}
         />
       ) : (
         <CupIcon
-          food={iconName}
+          food={iconName.toLowerCase()}
           width={150}
           height={150}
         />

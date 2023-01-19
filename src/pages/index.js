@@ -3,6 +3,7 @@ import { LPSectionLayout, LinkButton } from '@/components'
 
 import { PageLayout } from '@/components'
 
+
 export default function Home({ children }) {
   return (
     <>
