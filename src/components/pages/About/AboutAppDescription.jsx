@@ -1,6 +1,6 @@
 import styles from '@/styles/pages/lp.module.scss'
 
-const LPAppDescription = () => (
+const AboutAppDescription = () => (
   <div className={styles['container']}>
     <div className={styles['text-container']}>
       <p>
@@ -18,4 +18,4 @@ const LPAppDescription = () => (
   </div>
 )
 
-export default LPAppDescription
+export default AboutAppDescription

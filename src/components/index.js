@@ -31,5 +31,5 @@ export { default as Footer } from './common/Footer/Footer'
 /*
  * LP
  */
-export { default as LPAppDescription } from './pages/LP/LPAppDescription'
-export { default as LPSectionLayout } from './pages/LP/LPSectionLayout'
+export { default as AboutAppDescription } from './pages/About/AboutAppDescription'
+export { default as AboutSectionLayout } from './pages/About/AboutSectionLayout'
