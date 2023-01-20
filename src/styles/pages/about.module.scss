@@ -12,8 +12,10 @@
   position: relative;
   top: -90px;
 
-  p {
+  .text {
     margin: 0;
+    font-size: 1rem;
+    text-align: center;
   }
 }
 
@@ -25,12 +27,12 @@
   align-items: center;
 
   .titleContainer {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     font-size: 2rem;
     width: 100%;
 
     @include m.mobile {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     .title {

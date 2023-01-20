@@ -18,10 +18,13 @@
     color: a.$clrWhite;
     margin-bottom: 30px;
 
-    @include m.mobile {
-      font-size: 2rem;
+    @include m.tablet {
       line-height: 1.2;
-      margin-bottom: 16px;
+      @include m.mobile {
+        font-size: 2rem;
+
+        margin-bottom: 16px;
+      }
     }
 
     span {
@@ -47,6 +50,15 @@
     font-size: 2.5rem;
     margin: 0;
     color: a.$clrWhite;
+
+    @include m.tablet {
+      line-height: 1.2;
+      @include m.mobile {
+        font-size: 2rem;
+
+        margin-bottom: 16px;
+      }
+    }
 
     span {
       font-weight: 100;
