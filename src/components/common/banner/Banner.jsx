@@ -14,17 +14,17 @@ const BannerContainer = () => {
   const Content =
     Path === '/about' ? (
       <>
-        <h1>
+        <h1 className={styles['banner-title1']}>
           <span>CAFE DRINK</span> CUSTOMIZER
         </h1>
-        <p>
+        <p className={styles['banner-explanation']}>
           Are you unsure about what to order or how to customize your drink?
-          <br />
+          <br className={styles['banner-explanation-indention']} />
           Here’s what you need!
         </p>
       </>
     ) : (
-      <h1>
+      <h1 className={styles['banner-title2']}>
         <span>Discover Your</span> Favorites
       </h1>
     )
