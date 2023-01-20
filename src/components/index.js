@@ -32,4 +32,4 @@ export { default as Footer } from './common/Footer/Footer'
  */
 export { default as AboutAppDescription } from './pages/About/AboutAppDescription'
 export { default as AboutSectionLayout } from './pages/About/AboutSectionLayout'
-export { default as SectionTypeList } from './pages/about/SectionTypeList'
+export { default as SectionTypeList } from './pages/About/SectionTypeList'
