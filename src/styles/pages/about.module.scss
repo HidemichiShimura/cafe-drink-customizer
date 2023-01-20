@@ -10,10 +10,12 @@
   justify-content: center;
   z-index: 3;
   position: relative;
-  top: -30px;
+  top: -90px;
 
-  p {
+  .text {
     margin: 0;
+    font-size: 1rem;
+    text-align: center;
   }
 }
 
@@ -25,19 +27,24 @@
   align-items: center;
 
   .titleContainer {
-    margin-bottom: 4rem;
+    margin-bottom: 20px;
     font-size: 2rem;
     width: 100%;
 
     @include m.mobile {
-      margin-bottom: 2rem;
+      margin-bottom: 10px;
     }
 
     .title {
       text-align: center;
+      line-height: 1.2;
 
-      @include m.mobile {
-        font-size: 1.8rem;
+      @include m.tablet {
+        font-size: 2rem;
+
+        @include m.mobile {
+          font-size: 1.6rem;
+        }
       }
     }
 
@@ -56,5 +63,16 @@
   .sectionChildren {
     width: 100%;
     text-align: center;
+  }
+}
+
+.sectionTypes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  @include m.tablet {
+    flex-direction: column;
   }
 }

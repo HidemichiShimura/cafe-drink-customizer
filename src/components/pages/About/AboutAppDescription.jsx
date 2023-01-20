@@ -3,7 +3,7 @@ import styles from '@/styles/pages/about.module.scss'
 const AboutAppDescription = () => (
   <div className={styles['container']}>
     <div className={styles['text-container']}>
-      <p>
+      <p className={styles['text']}>
         Have you faced these moments at a cafe, “I don’t know what to order...”
         or “I don’t know what options the drink has...”?
         <br />
