@@ -7,16 +7,21 @@ import sampleState from '@/store/atoms/sampleState'
 const Sample = ({ customDrinks, smaple, handleClick }) => (
   <div>
     {customDrinks.length &&
-      customDrinks.map(({ id, dateCreated, description, moodId, title, optionIds }) => (
-        <div key={id} style={{ display: 'flex', flexDirection: 'column' }}>
-          <p>dateCreated: {dateCreated}</p>
-          <p>description: {description}</p>
-          <p>moodId: {moodId}</p>
-          <p>title: {title}</p>
+      customDrinks.map(
+        ({ id, dateCreated, description, moodId, title, optionIds }) => (
+          <div
+            key={id}
+            style={{ display: 'flex', flexDirection: 'column' }}
+          >
+            <p>dateCreated: {dateCreated}</p>
+            <p>description: {description}</p>
+            <p>moodId: {moodId}</p>
+            <p>title: {title}</p>
 
-          {optionIds.length && optionIds.map((o) => <div key={o}>{o}</div>)}
-        </div>
-      ))}
+            {optionIds.length && optionIds.map((o) => <div key={o}>{o}</div>)}
+          </div>
+        ),
+      )}
     this is sample {smaple}
     <button onClick={handleClick}>Click {smaple}</button>
     <SmapleItem />
@@ -29,7 +34,13 @@ const SampleContainer = ({ customDrinks }) => {
 
   const handleClick = () => setSample((prev) => prev + 1)
 
-  return <Sample customDrinks={customDrinks} smaple={smaple} handleClick={handleClick} />
+  return (
+    <Sample
+      customDrinks={customDrinks}
+      smaple={smaple}
+      handleClick={handleClick}
+    />
+  )
 }
 
 export const getStaticProps = async () => {

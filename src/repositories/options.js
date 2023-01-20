@@ -1,4 +1,7 @@
-import { fetchFBOptions, postFBOption } from '@/fb/services/customDrinksServices'
+import {
+  fetchFBOptions,
+  postFBOption,
+} from '@/fb/services/customDrinksServices'
 
 const convertBtoF = (options) => {
   const { option_name, ...rest } = options
@@ -15,7 +18,8 @@ const convertBtoF = (options) => {
  * Returns the sum of a and b
  * @returns {Array} options data
  */
-const fetchOptions = async () => fetchFBOptions().then((res) => res.map(convertBtoF))
+const fetchOptions = async () =>
+  fetchFBOptions().then((res) => res.map(convertBtoF))
 
 /**
  * Post a new  option in firestore

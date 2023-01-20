@@ -14,7 +14,9 @@ const DataPost = ({
     <>
       {isAdded && 'Added!!!!'}
       <div style={{ height: '100vh' }}>
-        <div style={{ border: '1px solid black', width: '100%', padding: '30px' }}>
+        <div
+          style={{ border: '1px solid black', width: '100%', padding: '30px' }}
+        >
           <h3>Add Option</h3>
           <form onSubmit={handlePostOption}>
             <input
@@ -24,7 +26,9 @@ const DataPost = ({
             <button type='submit'>Submit</button>
           </form>
         </div>
-        <div style={{ border: '1px solid black', width: '100%', padding: '30px' }}>
+        <div
+          style={{ border: '1px solid black', width: '100%', padding: '30px' }}
+        >
           <h3>Add Mood</h3>
           <form onSubmit={handlePostMood}>
             <input
@@ -34,7 +38,9 @@ const DataPost = ({
             <button type='submit'>Submit</button>
           </form>
         </div>
-        <div style={{ border: '1px solid black', width: '100%', padding: '30px' }}>
+        <div
+          style={{ border: '1px solid black', width: '100%', padding: '30px' }}
+        >
           <h3>Add Custom Drinks</h3>
 
           <form
@@ -89,9 +95,18 @@ const DataPost = ({
             <button type='submit'>Submit</button>
           </form>
         </div>
-        <div style={{ border: '1px solid black', width: '100%', padding: '30px' }}>
+        <div
+          style={{ border: '1px solid black', width: '100%', padding: '30px' }}
+        >
           <h3>List of Custom Drinks</h3>
-          <ul style={{ overflowY: 'scroll', width: '100%', height: '300px', padding: '30px' }}>
+          <ul
+            style={{
+              overflowY: 'scroll',
+              width: '100%',
+              height: '300px',
+              padding: '30px',
+            }}
+          >
             {customDrinks.map((cd) => (
               <li
                 key={cd.id}
@@ -173,8 +188,15 @@ const DataPostContainer = ({ customDrinks, options, moods }) => {
         optionIds.push(e.target[i].value)
       }
     }
-    if (!title || !description || !moodId || !iconName || !optionIds.length) return
-    await backend.customDrinks.postCustomDrink({ title, description, moodId, iconName, optionIds })
+    if (!title || !description || !moodId || !iconName || !optionIds.length)
+      return
+    await backend.customDrinks.postCustomDrink({
+      title,
+      description,
+      moodId,
+      iconName,
+      optionIds,
+    })
     setIsAdded(true)
   }
 

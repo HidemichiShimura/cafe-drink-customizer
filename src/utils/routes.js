@@ -1,5 +1,5 @@
 const routes = {
-  customizePage: '/drink/customize/'
-};
+  customizePage: '/drink/customize/',
+}
 
-export { routes };
+export { routes }

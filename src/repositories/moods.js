@@ -15,7 +15,8 @@ const convertBtoF = (moods) => {
  * Returns the sum of a and b
  * @returns {Array} moods data
  */
-const fetchMoods = async () => fetchFBMoods().then((res) => res.map(convertBtoF))
+const fetchMoods = async () =>
+  fetchFBMoods().then((res) => res.map(convertBtoF))
 
 /**
  * Post a new mood in firestore
