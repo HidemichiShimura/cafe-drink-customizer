@@ -5,7 +5,7 @@ const CustomDrinkContainer = ({ customDrink, options }) => {
   if (!customDrink || !Array.isArray(options)) return null
 
   const optionNames = customDrink.optionIds?.map(
-    (oId) => options.find((o) => o.id === oId)?.option_name,
+    (oId) => options.find((o) => o.id === oId)?.optionName,
   )
 
   return (
