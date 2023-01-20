@@ -11,8 +11,11 @@ const SectionTypeList = () => (
         className={styles.sectionType}
         key={idx}
       >
-        <CupIcon />
-        <p>{type}</p>
+        <CupIcon
+          width={200}
+          height={200}
+        />
+        <p className={styles.typeName}>{type}</p>
       </div>
     ))}
   </div>
