@@ -7,7 +7,7 @@ import styles from '@/styles/pages/customize.module.scss'
 
 // CustomizeMain. This component is place in componentsfolder because this will be reused in LP page.
 const CustomizeMain = ({ iconName, title, description, optionNames }) => (
-  <div>
+  <div className={styles.customizeContainer}>
     <CustomizeUpper
       iconName={iconName}
       title={title}
