@@ -1,4 +1,11 @@
-import { collection, getDocs, getDoc, addDoc, doc, Timestamp } from 'firebase/firestore'
+import {
+  collection,
+  getDocs,
+  getDoc,
+  addDoc,
+  doc,
+  Timestamp,
+} from 'firebase/firestore'
 import { db } from '../configFirestore'
 
 const restructuringData = (doc) => ({ ...doc.data(), id: doc.id })

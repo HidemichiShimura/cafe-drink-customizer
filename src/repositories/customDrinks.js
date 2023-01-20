@@ -29,13 +29,15 @@ const convertFtoB = (customDrink) => {
  * Returns cusomizes in firestore
  * @returns {Array} custom drinks data
  */
-const fetchCustomDrinks = async () => fetchFBCustomDrinks().then((res) => res.map(convertBtoF))
+const fetchCustomDrinks = async () =>
+  fetchFBCustomDrinks().then((res) => res.map(convertBtoF))
 
 /**
  * Returns a cusomize in firestore
  * @returns {Object} custom drink data
  */
-const fetchCustomDrink = async (id) => fetchFBCustomDrink(id).then((res) => convertBtoF(res))
+const fetchCustomDrink = async (id) =>
+  fetchFBCustomDrink(id).then((res) => convertBtoF(res))
 
 /**
  * Post a new custom drink in firestore

@@ -10,7 +10,12 @@ const SampleCommonComponent = ({ sample, handleOnClick }) => (
 const SampleCommonComponentContainerAsNeeded = () => {
   const [sample, setSample] = useState('initialState')
 
-  return <SampleCommonComponent sample={sample} handleOnClick={() => setSample('clicked')} />
+  return (
+    <SampleCommonComponent
+      sample={sample}
+      handleOnClick={() => setSample('clicked')}
+    />
+  )
 }
 
 export default SampleCommonComponentContainerAsNeeded
