@@ -1,14 +1,7 @@
 @use '@/styles/abstracts' as a;
 
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .selectionName {
-    font-size: 32px;
-    color: a.$clrTextCommon;
-    text-align: center;
-  }
+.selectionName {
+  font-size: 32px;
+  color: a.$clrTextCommon;
+  text-align: center;
 }
