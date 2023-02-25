@@ -3,7 +3,7 @@ import React from 'react'
 import { CustomizeLower } from './CustomizeLower'
 import { CustomizeUpper } from './CustomizeUpper'
 
-import styles from '@/styles/pages/customize.module.scss'
+import styles from 'styles/pages/customize.module.scss'
 
 // CustomizeMain. This component is place in componentsfolder because this will be reused in LP page.
 const CustomizeMain = ({ iconName, title, description, optionNames }) => (

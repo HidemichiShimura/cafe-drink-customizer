@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '@/styles/common/Header/NavContent.module.scss'
+import styles from 'styles/common/Header/NavContent.module.scss'
 
 const NAV_ITEMS = ['About']
 const NavContent = () =>

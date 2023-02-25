@@ -1,12 +1,8 @@
 import { useRouter } from 'next/router'
 import React, { useCallback, useMemo, useState } from 'react'
-import {
-  MoodSelectionLayout,
-  MoodSelectionItem,
-  PageLayout,
-} from '@/components'
-import { backend } from '@/repositories'
-import { routes } from '@/utils/routes'
+import { MoodSelectionLayout, MoodSelectionItem, PageLayout } from 'components'
+import { backend } from 'repositories'
+import { routes } from 'utils/routes'
 
 const MoodPage = ({
   moods,

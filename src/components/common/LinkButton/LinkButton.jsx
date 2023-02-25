@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '@/styles/common/Button/Button.module.scss'
+import styles from 'styles/common/Button/Button.module.scss'
 
 const LinkButton = ({ buttonContent, link }) => (
   <div className={styles['button-container']}>

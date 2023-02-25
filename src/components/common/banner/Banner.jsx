@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import styles from '@/styles/common/banner/banner.module.scss'
+import styles from 'styles/common/banner/banner.module.scss'
 
 const Banner = ({ content }) => (
   <div className={styles['banner']}>

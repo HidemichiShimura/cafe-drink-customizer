@@ -1,4 +1,4 @@
-import styles from '@/styles/pages/about.module.scss'
+import styles from 'styles/pages/about.module.scss'
 
 const AboutAppDescription = () => (
   <div className={styles['container']}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { HeaderLogo, NavMenu, BurgerNavMenu } from '../../index'
-import styles from '@/styles/common/Header/Header.module.scss'
+import styles from 'styles/common/Header/Header.module.scss'
 
 const Header = ({ burgerClass, menuClass, updateMenu }) => (
   <>

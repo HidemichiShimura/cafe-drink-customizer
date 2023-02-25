@@ -1,4 +1,4 @@
-import moodStyles from '@/styles/pages/mood.module.scss'
+import moodStyles from 'styles/pages/mood.module.scss'
 
 const MoodSelectionLayout = ({ children, title }) => (
   <div className={moodStyles.selectionContainer}>

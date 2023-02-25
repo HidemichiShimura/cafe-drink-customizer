@@ -1,7 +1,7 @@
 import { useRecoilState } from 'recoil'
-import SmapleItem from '@/components/pages/Sample/SampleItem'
-import { backend } from '@/repositories'
-import sampleState from '@/store/atoms/sampleState'
+import SmapleItem from 'components/pages/Sample/SampleItem'
+import { backend } from 'repositories'
+import sampleState from 'store/atoms/sampleState'
 
 // no businesslogics
 const Sample = ({ customDrinks, smaple, handleClick }) => (

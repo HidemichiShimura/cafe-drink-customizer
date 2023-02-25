@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState, useEffect } from 'react'
-import { backend } from '@/repositories'
+import { backend } from 'repositories'
 
 const DataPost = ({
   customDrinks,

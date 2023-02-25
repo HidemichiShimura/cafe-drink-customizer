@@ -7,7 +7,7 @@ import {
   SectionTypeList,
   AboutAppDescription,
   CustomizeMain,
-} from '@/components'
+} from 'components'
 
 const About = () => {
   // Non-customized drink

@@ -1,7 +1,7 @@
 import React from 'react'
 import { CustomizeOptionItem } from './CustomizeOptionItem'
-import { CupIcon } from '@/components'
-import style from '@/styles/pages/customize.module.scss'
+import { CupIcon } from 'components'
+import style from 'styles/pages/customize.module.scss'
 
 const CustomizeUpper = ({ iconName, title, optionNames }) => (
   <section className={style.customizeUpperSec}>

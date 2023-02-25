@@ -1,4 +1,4 @@
-import styles from '@/styles/pages/about.module.scss'
+import styles from 'styles/pages/about.module.scss'
 
 const AboutSectionLayout = ({ title = '', description, children }) => {
   return (

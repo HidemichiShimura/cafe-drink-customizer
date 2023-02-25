@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Logo from 'public/icons/header-logo.png'
-import styles from '@/styles/common/Header/HeaderLogo.module.scss'
+import styles from 'styles/common/Header/HeaderLogo.module.scss'
 
 const HeaderLogo = () => (
   <div className={styles['logo-container']}>

@@ -1,4 +1,4 @@
-import { fetchFBMoods, postFBMood } from '@/fb/services/customDrinksServices'
+import { fetchFBMoods, postFBMood } from 'fb/services/customDrinksServices'
 
 const convertBtoF = (moods) => {
   const { mood_name, ...rest } = moods

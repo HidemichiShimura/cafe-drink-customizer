@@ -2,7 +2,7 @@ import {
   fetchFBCustomDrinks,
   fetchFBCustomDrink,
   postFBCustomDrink,
-} from '@/fb/services/customDrinksServices'
+} from 'fb/services/customDrinksServices'
 
 const convertBtoF = (customDrink) => {
   const { date_created, mood_id, option_ids, icon_name, ...rest } = customDrink

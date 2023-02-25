@@ -1,6 +1,6 @@
-import { CupIcon } from '@/components'
+import { CupIcon } from 'components'
 
-import styles from '@/styles/pages/about.module.scss'
+import styles from 'styles/pages/about.module.scss'
 
 const SECTION_TYPES = ['MOOD', 'FLAVOR', 'MENU']
 

@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
-import { PageLayout, CupIcon } from '@/components'
+import { PageLayout, CupIcon } from 'components'
 
-import styles from '@/styles/pages/home.module.scss'
+import styles from 'styles/pages/home.module.scss'
 
 const HomePage = () => (
   <PageLayout>

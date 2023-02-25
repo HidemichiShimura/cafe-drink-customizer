@@ -1,5 +1,5 @@
-import { PageLayout, CustomizeMain } from '@/components'
-import { backend } from '@/repositories'
+import { PageLayout, CustomizeMain } from 'components'
+import { backend } from 'repositories'
 
 const CustomDrinkContainer = ({ customDrink, options }) => {
   if (!customDrink || !Array.isArray(options)) return null

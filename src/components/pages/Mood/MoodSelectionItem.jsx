@@ -1,5 +1,5 @@
-import { CupIcon, MoodIcon } from '@/components'
-import moodStyles from '@/styles/pages/mood.module.scss'
+import { CupIcon, MoodIcon } from 'components'
+import moodStyles from 'styles/pages/mood.module.scss'
 
 const MoodSelectionItem = ({
   id,

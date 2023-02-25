@@ -1,7 +1,4 @@
-import {
-  fetchFBOptions,
-  postFBOption,
-} from '@/fb/services/customDrinksServices'
+import { fetchFBOptions, postFBOption } from 'fb/services/customDrinksServices'
 
 const convertBtoF = (options) => {
   const { option_name, ...rest } = options
