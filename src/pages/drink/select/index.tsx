@@ -1,10 +1,7 @@
 import { useRouter } from 'next/router'
 import React, { useCallback, useMemo, useState } from 'react'
-// @ts-expect-error TS(2307): Cannot find module 'components' or its correspondi... Remove this comment to see the full error message
 import { MoodSelectionLayout, MoodSelectionItem, PageLayout } from 'components'
-// @ts-expect-error TS(2307): Cannot find module 'repositories' or its correspon... Remove this comment to see the full error message
 import { backend } from 'repositories'
-// @ts-expect-error TS(2307): Cannot find module 'utils/routes' or its correspon... Remove this comment to see the full error message
 import { routes } from 'utils/routes'
 
 const MoodPage = ({
@@ -13,17 +10,11 @@ const MoodPage = ({
   selectedMoodName,
   filteredDrinks,
   handleMoodClick,
-  handleDrinkCustomClick
+  handleDrinkCustomClick,
 }: any) => (
-  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
   <div>
-    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <MoodSelectionLayout title={'Mood'}>
-      {moods.map(({
-        id,
-        moodName
-      }: any) => (
-        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+      {moods.map(({ id, moodName }: any) => (
         <MoodSelectionItem
           key={id}
           id={id}
@@ -36,15 +27,9 @@ const MoodPage = ({
       ))}
     </MoodSelectionLayout>
 
-    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <MoodSelectionLayout title={selectedMoodName}>
       {filteredDrinks.length ? (
-        filteredDrinks.map(({
-          id,
-          title,
-          iconName
-        }: any) => (
-          // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
+        filteredDrinks.map(({ id, title, iconName }: any) => (
           <MoodSelectionItem
             key={id}
             id={id}
@@ -54,17 +39,13 @@ const MoodPage = ({
           />
         ))
       ) : (
-        // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
         <p>No Items Found</p>
       )}
     </MoodSelectionLayout>
   </div>
 )
 
-const MoodPageContainer = ({
-  customDrinks,
-  moods
-}: any) => {
+const MoodPageContainer = ({ customDrinks, moods }: any) => {
   const router = useRouter()
   const [selectedMood, setSelectedMood] = useState(null)
 
@@ -86,19 +67,14 @@ const MoodPageContainer = ({
 
   const filteredDrinks = useMemo(() => {
     if (!customDrinks?.length) return []
-    // @ts-expect-error TS(2339): Property 'id' does not exist on type 'never'.
-    return customDrinks.filter((cd: any) => cd.moodId === selectedMood?.id);
+    return customDrinks.filter((cd: any) => cd.moodId === selectedMood?.id)
   }, [selectedMood, customDrinks])
 
   return (
-    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <PageLayout>
-      // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
       <MoodPage
         moods={moods?.length ? moods : []}
-        // @ts-expect-error TS(2339): Property 'id' does not exist on type 'never'.
         selectedMoodId={selectedMood?.id ?? ''}
-        // @ts-expect-error TS(2339): Property 'moodName' does not exist on type 'never'... Remove this comment to see the full error message
         selectedMoodName={selectedMood?.moodName ?? ''}
         filteredDrinks={filteredDrinks}
         handleMoodClick={handleMoodClick}

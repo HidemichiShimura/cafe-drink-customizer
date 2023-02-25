@@ -1,4 +1,3 @@
-// @ts-expect-error TS(2307): Cannot find module 'fb/services/customDrinksServic... Remove this comment to see the full error message
 import { fetchFBOptions, postFBOption } from 'fb/services/customDrinksServices'
 
 const convertBtoF = (options: any) => {

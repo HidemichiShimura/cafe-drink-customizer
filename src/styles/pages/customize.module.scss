@@ -1,68 +1,66 @@
-@use "@/styles/abstracts" as a;
-@use "@/styles/mixin" as m;
+@use 'styles/abstracts' as a;
+@use 'styles/mixin' as m;
 
 .customize {
+  &Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    &Container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+  &UpperSec {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @include m.tablet {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &ImgContainer {
+    @include m.imageContainer;
+    background-color: a.$clrSelected;
+    margin-right: 50px;
+
+    @include m.tablet {
+      margin-right: 0px;
+    }
+  }
+
+  &DescContainer {
+    & h3 {
+      border-bottom: solid 1px #222;
+    }
+  }
+
+  &OptionName {
+    max-width: 150px;
+    border: solid 0.5px #222;
+    border-radius: 20px;
+    padding: 5px 10px 5px 17px;
+    margin-bottom: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &LowerSec {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+
+    & h3 {
+      text-align: start;
     }
 
-    &UpperSec {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    @include m.tablet {
+      max-width: 400px;
 
-        @include m.tablet {
-            flex-direction: column;
-            align-items: center;
-        }
+      & h3 {
+        text-align: center;
+      }
     }
-
-    &ImgContainer {
-        @include m.imageContainer;
-        background-color: a.$clrSelected;
-        margin-right: 50px;
-
-        @include m.tablet {
-            margin-right: 0px;
-        }
-    }
-
-    &DescContainer {
-        & h3 {
-            border-bottom: solid 1px #222;
-        }
-    }
-
-    &OptionName {
-        max-width: 150px;
-        border: solid 0.5px #222;
-        border-radius: 20px;
-        padding: 5px 10px 5px 17px;
-        margin-bottom: 10px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-
-    &LowerSec {
-        width: 100%;
-        max-width: 500px;
-        margin-top: 20px;
-
-        & h3 {
-            text-align: start;
-        }
-
-        @include m.tablet {
-
-            max-width: 400px;
-
-            & h3 {
-                text-align: center;
-            }
-        }
-    }
+  }
 }
