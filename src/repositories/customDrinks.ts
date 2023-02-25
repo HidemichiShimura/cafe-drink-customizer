@@ -2,9 +2,10 @@ import {
   fetchFBCustomDrinks,
   fetchFBCustomDrink,
   postFBCustomDrink,
+// @ts-expect-error TS(2307): Cannot find module 'fb/services/customDrinksServic... Remove this comment to see the full error message
 } from 'fb/services/customDrinksServices'
 
-const convertBtoF = (customDrink) => {
+const convertBtoF = (customDrink: any) => {
   const { date_created, mood_id, option_ids, icon_name, ...rest } = customDrink
   return {
     ...rest,
@@ -15,7 +16,7 @@ const convertBtoF = (customDrink) => {
   }
 }
 
-const convertFtoB = (customDrink) => {
+const convertFtoB = (customDrink: any) => {
   const { moodId, optionIds, iconName, ...rest } = customDrink
   return {
     ...rest,
@@ -30,20 +31,19 @@ const convertFtoB = (customDrink) => {
  * @returns {Array} custom drinks data
  */
 const fetchCustomDrinks = async () =>
-  fetchFBCustomDrinks().then((res) => res.map(convertBtoF))
+  fetchFBCustomDrinks().then((res: any) => res.map(convertBtoF))
 
 /**
  * Returns a cusomize in firestore
  * @returns {Object} custom drink data
  */
-const fetchCustomDrink = async (id) =>
-  fetchFBCustomDrink(id).then((res) => convertBtoF(res))
+const fetchCustomDrink = async (id: any) => fetchFBCustomDrink(id).then((res: any) => convertBtoF(res))
 
 /**
  * Post a new custom drink in firestore
  * @param {string} custom drink data
  */
-const postCustomDrink = async (data) => postFBCustomDrink(convertFtoB(data))
+const postCustomDrink = async (data: any) => postFBCustomDrink(convertFtoB(data))
 
 export const customDrinksImpl = {
   fetchCustomDrinks,

@@ -1,6 +1,7 @@
+// @ts-expect-error TS(2307): Cannot find module 'fb/services/customDrinksServic... Remove this comment to see the full error message
 import { fetchFBMoods, postFBMood } from 'fb/services/customDrinksServices'
 
-const convertBtoF = (moods) => {
+const convertBtoF = (moods: any) => {
   const { mood_name, ...rest } = moods
   return { ...rest, moodName: mood_name }
 }
@@ -16,13 +17,13 @@ const convertBtoF = (moods) => {
  * @returns {Array} moods data
  */
 const fetchMoods = async () =>
-  fetchFBMoods().then((res) => res.map(convertBtoF))
+  fetchFBMoods().then((res: any) => res.map(convertBtoF))
 
 /**
  * Post a new mood in firestore
  * @param {Object} data mood data
  */
-const postMood = async (data) => postFBMood(data)
+const postMood = async (data: any) => postFBMood(data)
 
 export const moodsImpl = {
   fetchMoods,

@@ -8,7 +8,10 @@ import {
 } from 'firebase/firestore'
 import { db } from '../configFirestore'
 
-const restructuringData = (doc) => ({ ...doc.data(), id: doc.id })
+const restructuringData = (doc: any) => ({
+  ...doc.data(),
+  id: doc.id
+})
 
 const fetchFBCustomDrinks = async () => {
   return getDocs(collection(db, 'custom_drinks'))
@@ -18,7 +21,7 @@ const fetchFBCustomDrinks = async () => {
     })
 }
 
-const fetchFBCustomDrink = async (id) => {
+const fetchFBCustomDrink = async (id: any) => {
   if (!id) throw new Error('Failed to read id')
   return getDoc(doc(db, 'custom_drinks', id))
     .then((qs) => restructuringData(qs))
@@ -43,7 +46,7 @@ const fetchFBOptions = async () => {
     })
 }
 
-const postFBCustomDrink = async (data) => {
+const postFBCustomDrink = async (data: any) => {
   if (!data) throw new Error('Failed to read data')
   return addDoc(collection(db, 'custom_drinks'), {
     date_created: Timestamp.fromDate(new Date(new Date().toLocaleDateString())),
@@ -53,14 +56,14 @@ const postFBCustomDrink = async (data) => {
   })
 }
 
-const postFBOption = async (data) => {
+const postFBOption = async (data: any) => {
   if (!data) throw new Error('Failed to read option')
   return addDoc(collection(db, 'options'), { option_name: data }).catch((_) => {
     throw new Error('Error with postFBOption')
   })
 }
 
-const postFBMood = async (data) => {
+const postFBMood = async (data: any) => {
   if (!data) throw new Error('Failed to read mood')
   return addDoc(collection(db, 'moods'), { mood_name: data }).catch((_) => {
     throw new Error('Error with postFBMood')

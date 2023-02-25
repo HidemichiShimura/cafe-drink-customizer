@@ -1,6 +1,12 @@
 import Image from 'next/image'
 
-const CupIcon = ({ src, alt, width, height }) => (
+const CupIcon = ({
+  src,
+  alt,
+  width,
+  height
+}: any) => (
+  // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
   <Image
     src={src}
     alt={alt}
@@ -14,6 +20,7 @@ const CupIconContainer = ({ food = '', width = 100, height = 100 }) => {
   const alt = food === '' ? 'cup icon' : `${food} cup icon`
 
   return (
+    // @ts-expect-error TS(17004): Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <CupIcon
       src={src}
       alt={alt}
