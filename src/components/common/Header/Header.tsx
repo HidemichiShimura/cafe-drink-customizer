@@ -9,30 +9,28 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({ burgerClass, menuClass, updateMenu }) => (
-  <>
-    <div className={styles['nav-bar']}>
-      <HeaderLogo />
+  <div className={styles['nav-bar']}>
+    <HeaderLogo />
 
-      <div
-        className={styles['burger-menu']}
-        onClick={updateMenu}
-      >
-        <div className={styles[burgerClass]}></div>
+    <div
+      className={styles['burger-menu']}
+      onClick={updateMenu}
+    >
+      <div className={styles[burgerClass]}></div>
 
-        <div className={styles[burgerClass]}></div>
+      <div className={styles[burgerClass]}></div>
 
-        <div className={styles[burgerClass]}></div>
-      </div>
-
-      <nav className={styles[menuClass]}>
-        <BurgerNavMenu />
-      </nav>
-
-      <nav className={styles['nav-menu']}>
-        <NavMenu />
-      </nav>
+      <div className={styles[burgerClass]}></div>
     </div>
-  </>
+
+    <nav className={styles[menuClass]}>
+      <BurgerNavMenu />
+    </nav>
+
+    <nav className={styles['nav-menu']}>
+      <NavMenu />
+    </nav>
+  </div>
 )
 
 const HeaderContainer: FC = () => {
