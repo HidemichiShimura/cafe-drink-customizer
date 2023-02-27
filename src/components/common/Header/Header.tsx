@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { HeaderLogo, NavMenu, BurgerNavMenu } from '../../index'
 import styles from 'styles/common/Header/Header.module.scss'
 
-const Header = ({ burgerClass, menuClass, updateMenu }: any) => (
+interface HeaderProps {
+  burgerClass: string
+  menuClass: string
+  updateMenu: () => void
+}
+
+const Header: FC<HeaderProps> = ({ burgerClass, menuClass, updateMenu }) => (
   <>
     <div className={styles['nav-bar']}>
       <HeaderLogo />
@@ -29,10 +35,13 @@ const Header = ({ burgerClass, menuClass, updateMenu }: any) => (
   </>
 )
 
-const HeaderContainer = () => {
-  const [burger_class, setBurgerClass] = useState('burger-bar')
-  const [menu_class, setMenuClass] = useState('menu-hidden')
-  const [isMenuClicked, setIsMenuClicked] = useState(false)
+const HeaderContainer: FC = () => {
+  const [burger_class, setBurgerClass]: [string, (param: string) => void] =
+    useState('burger-bar')
+  const [menu_class, setMenuClass]: [string, (param: string) => void] =
+    useState('menu-hidden')
+  const [isMenuClicked, setIsMenuClicked]: [boolean, (param: boolean) => void] =
+    useState(false)
 
   const updateMenu = () => {
     if (!isMenuClicked) {

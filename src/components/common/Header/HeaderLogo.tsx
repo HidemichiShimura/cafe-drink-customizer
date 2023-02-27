@@ -1,8 +1,9 @@
+import { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from 'styles/common/Header/HeaderLogo.module.scss'
 
-const HeaderLogo = () => (
+const HeaderLogo: FC = () => (
   <div className={styles['logo-container']}>
     <Link
       className={styles['logo-link']}
