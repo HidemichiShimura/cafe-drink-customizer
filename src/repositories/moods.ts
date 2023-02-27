@@ -1,6 +1,9 @@
 import { fetchFBMoods, postFBMood } from 'fb/services/customDrinksServices'
+import { FBStoreMood, FBClientMood } from 'fb/types/mood.type'
 
-const convertBtoF = (moods: any) => {
+export type ConvertBtoF = (moods: FBStoreMood) => FBClientMood
+
+const convertBtoF: ConvertBtoF = (moods) => {
   const { mood_name, ...rest } = moods
   return { ...rest, moodName: mood_name }
 }
@@ -16,7 +19,7 @@ const convertBtoF = (moods: any) => {
  * @returns {Array} moods data
  */
 const fetchMoods = async () =>
-  fetchFBMoods().then((res: any) => res.map(convertBtoF))
+  fetchFBMoods().then((res) => res.map(convertBtoF))
 
 /**
  * Post a new mood in firestore
