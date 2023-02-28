@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { CustomizeOptionItem } from './CustomizeOptionItem'
 import { CupIcon } from 'components'
+import { CustomizeUpperProps } from './customize.type'
 import style from 'styles/pages/customize.module.scss'
 
-const CustomizeUpper = ({ iconName, title, optionNames }: any) => (
+const CustomizeUpper: FC<CustomizeUpperProps> = ({
+  iconName,
+  title,
+  optionNames,
+}) => (
   <section className={style.customizeUpperSec}>
     <div className={style.customizeImgContainer}>
       <CupIcon
@@ -16,7 +21,7 @@ const CustomizeUpper = ({ iconName, title, optionNames }: any) => (
     <div className={style.customizeDescContainer}>
       <h3>{title}</h3>
       {optionNames &&
-        optionNames.map((on: any, idx: any) => (
+        optionNames.map((on, idx) => (
           <CustomizeOptionItem
             key={idx + on}
             optionName={on}
