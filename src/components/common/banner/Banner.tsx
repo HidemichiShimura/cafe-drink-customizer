@@ -1,17 +1,23 @@
-import { useRouter } from 'next/router'
+import { FC } from 'react'
+
+import { useRouter, NextRouter } from 'next/router'
 
 import styles from 'styles/common/banner/banner.module.scss'
 
-const Banner = ({ content }: any) => (
+interface BannerProps {
+  content: JSX.Element
+}
+
+const Banner: FC<BannerProps> = ({ content }) => (
   <div className={styles['banner']}>
     <div className={styles['banner-content']}>{content}</div>
   </div>
 )
 
-const BannerContainer = () => {
-  const Router = useRouter()
-  const Path = Router.pathname
-  const Content =
+const BannerContainer: FC = () => {
+  const Router: NextRouter = useRouter()
+  const Path: string = Router.pathname
+  const Content: JSX.Element =
     Path === '/about' ? (
       <>
         <h1 className={styles['banner-title1']}>

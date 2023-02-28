@@ -1,6 +1,10 @@
+import { FC } from 'react'
+
 import Image from 'next/image'
 
-const CupIcon = ({ src, alt, width, height }: any) => (
+import { IconProps, IconContainerProps } from './common.type'
+
+const CupIcon: FC<IconProps> = ({ src, alt, width, height }) => (
   <Image
     src={src}
     alt={alt}
@@ -9,9 +13,13 @@ const CupIcon = ({ src, alt, width, height }: any) => (
   />
 )
 
-const CupIconContainer = ({ food = '', width = 100, height = 100 }) => {
-  const src = food === '' ? '/icons/cup.png' : `/icons/cup-${food}.png`
-  const alt = food === '' ? 'cup icon' : `${food} cup icon`
+const CupIconContainer: FC<Omit<IconContainerProps, 'mood'>> = ({
+  food = '',
+  width = 100,
+  height = 100,
+}) => {
+  const src: string = food === '' ? '/icons/cup.png' : `/icons/cup-${food}.png`
+  const alt: string = food === '' ? 'cup icon' : `${food} cup icon`
 
   return (
     <CupIcon

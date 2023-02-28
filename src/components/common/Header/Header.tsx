@@ -1,39 +1,42 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { HeaderLogo, NavMenu, BurgerNavMenu } from '../../index'
 import styles from 'styles/common/Header/Header.module.scss'
 
-const Header = ({ burgerClass, menuClass, updateMenu }: any) => (
-  <>
-    <div className={styles['nav-bar']}>
-      <HeaderLogo />
+interface HeaderProps {
+  burgerClass: string
+  menuClass: string
+  updateMenu: () => void
+}
 
-      <div
-        className={styles['burger-menu']}
-        onClick={updateMenu}
-      >
-        <div className={styles[burgerClass]}></div>
+const Header: FC<HeaderProps> = ({ burgerClass, menuClass, updateMenu }) => (
+  <div className={styles['nav-bar']}>
+    <HeaderLogo />
 
-        <div className={styles[burgerClass]}></div>
+    <div
+      className={styles['burger-menu']}
+      onClick={updateMenu}
+    >
+      <div className={styles[burgerClass]}></div>
 
-        <div className={styles[burgerClass]}></div>
-      </div>
+      <div className={styles[burgerClass]}></div>
 
-      <nav className={styles[menuClass]}>
-        <BurgerNavMenu />
-      </nav>
-
-      <nav className={styles['nav-menu']}>
-        <NavMenu />
-      </nav>
+      <div className={styles[burgerClass]}></div>
     </div>
-  </>
+
+    <nav className={styles[menuClass]}>
+      <BurgerNavMenu />
+    </nav>
+
+    <nav className={styles['nav-menu']}>
+      <NavMenu />
+    </nav>
+  </div>
 )
 
-const HeaderContainer = () => {
-  const [burger_class, setBurgerClass] = useState('burger-bar')
-  const [menu_class, setMenuClass] = useState('menu-hidden')
-  const [isMenuClicked, setIsMenuClicked] = useState(false)
-
+const HeaderContainer: FC = () => {
+  const [burger_class, setBurgerClass] = useState<string>('burger-bar')
+  const [menu_class, setMenuClass] = useState<string>('menu-hidden')
+  const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false)
   const updateMenu = () => {
     if (!isMenuClicked) {
       setBurgerClass('burger-bar-clicked')
