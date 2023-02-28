@@ -34,13 +34,9 @@ const Header: FC<HeaderProps> = ({ burgerClass, menuClass, updateMenu }) => (
 )
 
 const HeaderContainer: FC = () => {
-  const [burger_class, setBurgerClass]: [string, (param: string) => void] =
-    useState('burger-bar')
-  const [menu_class, setMenuClass]: [string, (param: string) => void] =
-    useState('menu-hidden')
-  const [isMenuClicked, setIsMenuClicked]: [boolean, (param: boolean) => void] =
-    useState(false)
-
+  const [burger_class, setBurgerClass] = useState<string>('burger-bar')
+  const [menu_class, setMenuClass] = useState<string>('menu-hidden')
+  const [isMenuClicked, setIsMenuClicked] = useState<boolean>(false)
   const updateMenu = () => {
     if (!isMenuClicked) {
       setBurgerClass('burger-bar-clicked')
