@@ -8,9 +8,12 @@ import type {
   FBStoreCustomDrink,
 } from 'fb/types/customDrinks.type'
 
-type ConvertBtoF = (customDrink: FBStoreCustomDrink) => FBClientCustomDrink
+type ConvertBtoF = (
+  customDrink: FBStoreCustomDrink | undefined,
+) => FBClientCustomDrink | undefined
 
 const convertBtoF: ConvertBtoF = (customDrink) => {
+  if (!customDrink) return undefined
   const { date_created, mood_id, option_ids, icon_name, ...rest } = customDrink
   return {
     ...rest,

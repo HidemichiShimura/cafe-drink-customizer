@@ -1,7 +1,13 @@
 import { fetchFBOptions, postFBOption } from 'fb/services/customDrinksServices'
+import { FBClientOption, FBStoreOption } from 'fb/types/options.type'
 
-const convertBtoF = (options: any) => {
-  const { option_name, ...rest } = options
+type ConvertBtoF = (
+  customDrink: FBStoreOption | undefined,
+) => FBClientOption | undefined
+
+const convertBtoF: ConvertBtoF = (option) => {
+  if (!option) return undefined
+  const { option_name, ...rest } = option
   return { ...rest, optionName: option_name }
 }
 
@@ -16,7 +22,7 @@ const convertBtoF = (options: any) => {
  * @returns {Array} options data
  */
 const fetchOptions = async () =>
-  fetchFBOptions().then((res: any) => res.map(convertBtoF))
+  fetchFBOptions().then((res) => res.map(convertBtoF))
 
 /**
  * Post a new  option in firestore

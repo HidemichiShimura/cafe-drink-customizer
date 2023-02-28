@@ -1,12 +1,18 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { FC } from 'react'
 import { CustomizeLower } from './CustomizeLower'
 import { CustomizeUpper } from './CustomizeUpper'
 
 import styles from 'styles/pages/customize.module.scss'
+import { CustomizeMainProps } from './customize.type'
 
 // CustomizeMain. This component is place in componentsfolder because this will be reused in LP page.
-const CustomizeMain = ({ iconName, title, description, optionNames }: any) => (
+const CustomizeMain: FC<CustomizeMainProps> = ({
+  iconName,
+  title,
+  description,
+  optionNames,
+}) => (
   <div className={styles.customizeContainer}>
     <CustomizeUpper
       iconName={iconName}
@@ -17,13 +23,5 @@ const CustomizeMain = ({ iconName, title, description, optionNames }: any) => (
     <CustomizeLower description={description} />
   </div>
 )
-
-// Prop types for CustomizeMain
-CustomizeMain.prototype = {
-  iconName: PropTypes.string,
-  title: PropTypes.string,
-  description: PropTypes.string,
-  optionNames: PropTypes.arrayOf(PropTypes.string),
-}
 
 export { CustomizeMain }
