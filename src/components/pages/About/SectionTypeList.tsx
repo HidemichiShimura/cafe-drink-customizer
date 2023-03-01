@@ -1,12 +1,14 @@
+import { FC } from 'react'
+
 import { CupIcon } from 'components'
 
 import styles from 'styles/pages/about.module.scss'
 
 const SECTION_TYPES = ['MOOD', 'FLAVOR', 'MENU']
 
-const SectionTypeList = () => (
+const SectionTypeList: FC = () => (
   <div className={styles.sectionTypes}>
-    {SECTION_TYPES.map((type, idx) => (
+    {SECTION_TYPES.map((type: string, idx: number) => (
       <div
         className={styles.sectionType}
         key={idx}

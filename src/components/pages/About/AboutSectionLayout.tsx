@@ -1,6 +1,18 @@
+import { FC, ReactNode } from 'react'
+
 import styles from 'styles/pages/about.module.scss'
 
-const AboutSectionLayout = ({ title = '', description, children }: any) => {
+interface AboutSectionLayoutProps {
+  title?: string
+  description?: string
+  children: ReactNode
+}
+
+const AboutSectionLayout: FC<AboutSectionLayoutProps> = ({
+  title = '',
+  description,
+  children,
+}) => {
   return (
     <section className={styles.sectionLayout}>
       <div className={styles.titleContainer}>

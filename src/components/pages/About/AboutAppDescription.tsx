@@ -1,6 +1,8 @@
+import { FC } from 'react'
+
 import styles from 'styles/pages/about.module.scss'
 
-const AboutAppDescription = () => (
+const AboutAppDescription: FC = () => (
   <div className={styles['container']}>
     <div className={styles['text-container']}>
       <p className={styles['text']}>
