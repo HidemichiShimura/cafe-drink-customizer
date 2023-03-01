@@ -1,40 +1,35 @@
-import { signInWithEmailAndPassword } from 'firebase/auth'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { useAuth } from '../../hooks/firebase'
+import { FC } from 'react'
+import {
+  useForm,
+  UseFormHandleSubmit,
+  UseFormRegister,
+  FieldErrors,
+} from 'react-hook-form'
+import { useLogin } from './hooks/useLogin'
 
-interface LoginType {
+export interface LoginType {
   email: string
   password: string
 }
 
-const Login = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginType>()
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState('')
-  const router = useRouter()
-  const auth = useAuth()
+interface LoginProps {
+  register: UseFormRegister<LoginType>
+  handleSubmit: UseFormHandleSubmit<LoginType>
+  onSubmit: (data: LoginType) => Promise<void>
+  isLoading: boolean
+  errors: FieldErrors<LoginType>
+  error: string
+}
 
-  const onSubmit = async (data: LoginType) => {
-    setIsLoading(true)
-    setError('')
-
-    try {
-      await signInWithEmailAndPassword(auth, data.email, data.password)
-      setIsLoading(false)
-      router.push('/')
-    } catch (error) {
-      setIsLoading(false)
-      setError('Information is not correct')
-    }
-  }
-
+const Login: FC<LoginProps> = ({
+  register,
+  handleSubmit,
+  onSubmit,
+  errors,
+  isLoading,
+  error,
+}) => {
   return (
     <div>
       <h1>Login to your account</h1>
@@ -70,4 +65,25 @@ const Login = () => {
   )
 }
 
-export default Login
+const LoginContainer = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginType>()
+
+  const { isLoading, error, onSubmit } = useLogin()
+
+  return (
+    <Login
+      register={register}
+      handleSubmit={handleSubmit}
+      onSubmit={onSubmit}
+      isLoading={isLoading}
+      errors={errors}
+      error={error}
+    />
+  )
+}
+
+export default LoginContainer

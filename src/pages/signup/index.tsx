@@ -1,26 +1,29 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { useAuth, useUser } from '../../hooks/firebase'
+import {
+  FieldErrors,
+  SubmitHandler,
+  useForm,
+  UseFormHandleSubmit,
+  UseFormRegister,
+} from 'react-hook-form'
+import { useSignup } from './hooks/useSignup'
 
-interface SignUpType {
+export interface SignUpType {
   email: string
   password: string
   confirmationPassword: string
 }
 
-interface SignUpContainerProps {}
-
 interface SignUpProps {
-  onSubmit: any
-  register: any
-  errors: any
+  handleSubmit: UseFormHandleSubmit<SignUpType>
+  onSubmit: SubmitHandler<SignUpType>
+  register: UseFormRegister<SignUpType>
+  errors: FieldErrors<SignUpType>
   isProcessingSignup: boolean
 }
 
 const SignUp = ({
+  handleSubmit,
   onSubmit,
   register,
   errors,
@@ -29,7 +32,7 @@ const SignUp = ({
   return (
     <>
       <h1>Sign up your account</h1>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>E-mail</label>
           {errors.email && <p>Please enter e-mail</p>}
@@ -71,43 +74,19 @@ const SignUp = ({
   )
 }
 
-const SignUpContainer = ({}: SignUpContainerProps) => {
+const SignUpContainer = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<SignUpType>()
 
-  const auth = useAuth()
-  const currentUser = useUser()
-  const [isProcessingSignup, setIsProcessingSignup] = useState(false)
-  const router = useRouter()
-
-  const signup = async (email: string, password: string) => {
-    try {
-      setIsProcessingSignup(true)
-      await createUserWithEmailAndPassword(auth, email, password)
-      setIsProcessingSignup(false)
-    } catch (e) {
-      console.error(e)
-    }
-  }
-
-  const onSubmit: SubmitHandler<SignUpType> = ({
-    email,
-    password,
-    confirmationPassword,
-  }) => {
-    password === confirmationPassword
-      ? signup(email, password)
-      : alert('The password does not match')
-  }
-
-  if (currentUser) router.push('/')
+  const { onSubmit, isProcessingSignup } = useSignup()
 
   return (
     <SignUp
-      onSubmit={handleSubmit(onSubmit)}
+      handleSubmit={handleSubmit}
+      onSubmit={onSubmit}
       register={register}
       errors={errors}
       isProcessingSignup={isProcessingSignup}

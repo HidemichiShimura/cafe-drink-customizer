@@ -12,7 +12,6 @@ const MoodSelectionLayout: FC<MoodSelectionLayoutProps> = ({
 }) => (
   <div className={moodStyles.selectionContainer}>
     <h3>{title}</h3>
-
     <div className={moodStyles.selectionItems}>{children}</div>
   </div>
 )

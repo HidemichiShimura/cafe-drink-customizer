@@ -14,14 +14,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
-export function useAuth() {
-  return auth
-}
 
-export function useUser() {
+function useUser() {
   const [user, setUser] = useState<User>()
   onAuthStateChanged(auth, (user) => {
     if (user) setUser(user)
   })
   return user
 }
+
+export { auth, useUser }
