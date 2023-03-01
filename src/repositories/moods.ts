@@ -25,7 +25,7 @@ const fetchMoods = async () =>
  * Post a new mood in firestore
  * @param {Object} data mood data
  */
-const postMood = async (data: any) => postFBMood(data)
+const postMood = async (data: string) => postFBMood(data)
 
 export const moodsImpl = {
   fetchMoods,
