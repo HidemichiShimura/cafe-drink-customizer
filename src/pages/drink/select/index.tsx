@@ -1,8 +1,24 @@
 import { useRouter } from 'next/router'
 import React, { useCallback, useMemo, useState } from 'react'
 import { MoodSelectionLayout, MoodSelectionItem, PageLayout } from 'components'
+import type { FBClientCustomDrink } from 'fb/types/customDrinks.type'
+import type { FBClientMood } from 'fb/types/mood.type'
 import { backend } from 'repositories'
 import { routes } from 'utils/routes'
+
+interface MoodPageContainerProps {
+  customDrinks: FBClientCustomDrink[]
+  moods: FBClientMood[]
+}
+
+interface MoodPageProps {
+  moods: FBClientMood[]
+  selectedMoodId: string
+  selectedMoodName: string
+  filteredDrinks: FBClientCustomDrink[]
+  handleMoodClick: (id: string) => void
+  handleDrinkCustomClick: (id: string) => void
+}
 
 const MoodPage = ({
   moods,
@@ -11,10 +27,10 @@ const MoodPage = ({
   filteredDrinks,
   handleMoodClick,
   handleDrinkCustomClick,
-}: any) => (
+}: MoodPageProps) => (
   <div>
     <MoodSelectionLayout title={'Mood'}>
-      {moods.map(({ id, moodName }: any) => (
+      {moods.map(({ id, moodName }: FBClientMood) => (
         <MoodSelectionItem
           key={id}
           id={id}
@@ -29,7 +45,7 @@ const MoodPage = ({
 
     <MoodSelectionLayout title={selectedMoodName}>
       {filteredDrinks.length ? (
-        filteredDrinks.map(({ id, title, iconName }: any) => (
+        filteredDrinks.map(({ id, title, iconName }: FBClientCustomDrink) => (
           <MoodSelectionItem
             key={id}
             id={id}
@@ -45,13 +61,13 @@ const MoodPage = ({
   </div>
 )
 
-const MoodPageContainer = ({ customDrinks, moods }: any) => {
+const MoodPageContainer = ({ customDrinks, moods }: MoodPageContainerProps) => {
   const router = useRouter()
-  const [selectedMood, setSelectedMood] = useState(null)
+  const [selectedMood, setSelectedMood] = useState<FBClientMood | null>(null)
 
   const handleMoodClick = useCallback(
-    (id: any) => {
-      const itemIdx = moods.findIndex((mood: any) => mood.id === id)
+    (id: string) => {
+      const itemIdx = moods.findIndex((mood: FBClientMood) => mood.id === id)
       if (itemIdx === -1) return
       setSelectedMood(moods[itemIdx])
     },
@@ -59,7 +75,7 @@ const MoodPageContainer = ({ customDrinks, moods }: any) => {
   )
 
   const handleDrinkCustomClick = useCallback(
-    (id: any) => {
+    (id: string) => {
       router.push(`${routes.customizePage}${id}`)
     },
     [router],
@@ -67,7 +83,9 @@ const MoodPageContainer = ({ customDrinks, moods }: any) => {
 
   const filteredDrinks = useMemo(() => {
     if (!customDrinks?.length) return []
-    return customDrinks.filter((cd: any) => cd.moodId === selectedMood?.id)
+    return customDrinks.filter(
+      (cd: FBClientCustomDrink) => cd.moodId === selectedMood?.id,
+    )
   }, [selectedMood, customDrinks])
 
   return (

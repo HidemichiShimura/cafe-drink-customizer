@@ -1,7 +1,7 @@
 import React from 'react'
 import style from 'styles/pages/customize.module.scss'
 
-const CustomizeLower = ({ description }: any) => (
+const CustomizeLower = ({ description }: { description: string }) => (
   <section className={style.customizeLowerSec}>
     <h3>Comment</h3>
 

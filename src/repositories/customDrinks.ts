@@ -3,8 +3,17 @@ import {
   fetchFBCustomDrink,
   postFBCustomDrink,
 } from 'fb/services/customDrinksServices'
+import type {
+  FBClientCustomDrink,
+  FBStoreCustomDrink,
+} from 'fb/types/customDrinks.type'
 
-const convertBtoF = (customDrink: any) => {
+type ConvertBtoF = (
+  customDrink: FBStoreCustomDrink | undefined,
+) => FBClientCustomDrink | undefined
+
+const convertBtoF: ConvertBtoF = (customDrink) => {
+  if (!customDrink) return undefined
   const { date_created, mood_id, option_ids, icon_name, ...rest } = customDrink
   return {
     ...rest,
@@ -30,14 +39,14 @@ const convertFtoB = (customDrink: any) => {
  * @returns {Array} custom drinks data
  */
 const fetchCustomDrinks = async () =>
-  fetchFBCustomDrinks().then((res: any) => res.map(convertBtoF))
+  fetchFBCustomDrinks().then((res) => res.map(convertBtoF))
 
 /**
  * Returns a cusomize in firestore
  * @returns {Object} custom drink data
  */
-const fetchCustomDrink = async (id: any) =>
-  fetchFBCustomDrink(id).then((res: any) => convertBtoF(res))
+const fetchCustomDrink = async (id: string) =>
+  fetchFBCustomDrink(id).then((res) => convertBtoF(res))
 
 /**
  * Post a new custom drink in firestore

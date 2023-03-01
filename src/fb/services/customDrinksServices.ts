@@ -5,42 +5,53 @@ import {
   addDoc,
   doc,
   Timestamp,
+  QueryDocumentSnapshot,
+  DocumentData,
 } from 'firebase/firestore'
 import { db } from '../configFirestore'
+import type { FBStoreCustomDrink } from 'fb/types/customDrinks.type'
+import type { FBStoreMood } from 'fb/types/mood.type'
+import { FBStoreOption } from 'fb/types/options.type'
 
-const restructuringData = (doc: any) => ({
+const restructuringData = (doc: QueryDocumentSnapshot<DocumentData>) => ({
   ...doc.data(),
-  id: doc.id
+  id: doc.id,
 })
 
-const fetchFBCustomDrinks = async () => {
+const fetchFBCustomDrinks = async (): Promise<FBStoreCustomDrink[]> => {
   return getDocs(collection(db, 'custom_drinks'))
-    .then((qs) => qs.docs.map(restructuringData))
+    .then((qs) => qs.docs.map(restructuringData) as FBStoreCustomDrink[])
     .catch((_) => {
       throw new Error('Error with fetchFBCustomDrinks')
     })
 }
 
-const fetchFBCustomDrink = async (id: any) => {
+const fetchFBCustomDrink = async (
+  id: string,
+): Promise<FBStoreCustomDrink | undefined> => {
   if (!id) throw new Error('Failed to read id')
   return getDoc(doc(db, 'custom_drinks', id))
-    .then((qs) => restructuringData(qs))
+    .then((qs) => {
+      if (!qs.exists()) return undefined
+
+      return restructuringData(qs) as FBStoreCustomDrink
+    })
     .catch((_) => {
       throw new Error('Error with fetchFBCustomDrink')
     })
 }
 
-const fetchFBMoods = async () => {
+const fetchFBMoods = async (): Promise<FBStoreMood[]> => {
   return getDocs(collection(db, 'moods'))
-    .then((qs) => qs.docs.map(restructuringData))
+    .then((qs) => qs.docs.map(restructuringData) as FBStoreMood[])
     .catch((_) => {
       throw new Error('Error with fetchFBMoods')
     })
 }
 
-const fetchFBOptions = async () => {
+const fetchFBOptions = async (): Promise<FBStoreOption[]> => {
   return getDocs(collection(db, 'options'))
-    .then((qs) => qs.docs.map(restructuringData))
+    .then((qs) => qs.docs.map(restructuringData) as FBStoreOption[])
     .catch((_) => {
       throw new Error('Error with fetchFBOptions')
     })

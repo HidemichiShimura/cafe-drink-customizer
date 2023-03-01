@@ -1,6 +1,10 @@
+import { FC } from 'react'
+
 import Image from 'next/image'
 
-const MoodIcon = ({ src, alt, width, height }: any) => (
+import { IconProps, IconContainerProps } from './common.type'
+
+const MoodIcon: FC<IconProps> = ({ src, alt, width, height }) => (
   <Image
     src={src}
     alt={alt}
@@ -9,9 +13,13 @@ const MoodIcon = ({ src, alt, width, height }: any) => (
   />
 )
 
-const MoodIconContainer = ({ mood = '', width = 100, height = 100 }) => {
-  const src = `/icons/${mood}.png`
-  const alt = `${mood} icon`
+const MoodIconContainer: FC<Omit<IconContainerProps, 'food'>> = ({
+  mood = '',
+  width = 100,
+  height = 100,
+}) => {
+  const src: string = `/icons/${mood}.png`
+  const alt: string = `${mood} icon`
 
   return (
     <MoodIcon
