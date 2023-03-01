@@ -1,3 +1,5 @@
+import { FC } from 'react'
+
 import Head from 'next/head'
 
 import {
@@ -9,7 +11,7 @@ import {
   CustomizeMain,
 } from 'components'
 
-const About = () => {
+const About: FC = () => {
   // Non-customized drink
   const IconName = 'pumpkin'
   const DrinkName = 'Hocus Pocus Latte'
