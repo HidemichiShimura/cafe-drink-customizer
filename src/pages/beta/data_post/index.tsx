@@ -1,7 +1,45 @@
-import React, { useCallback, useMemo, useState, useEffect } from 'react'
+import React, {
+  useCallback,
+  useMemo,
+  useState,
+  useEffect,
+  FC,
+  FormEvent,
+} from 'react'
+import type { FBClientCustomDrink } from 'fb/types/customDrinks.type'
+import type { FBClientMood } from 'fb/types/mood.type'
+import type { FBClientOption } from 'fb/types/options.type'
 import { backend } from 'repositories'
 
-const DataPost = ({
+type DataPostContainerProps = {
+  customDrinks: FBClientCustomDrink[]
+  options: FBClientOption[]
+  moods: FBClientMood[]
+}
+
+type CustomDrinksAsProps = {
+  optionNames: string[]
+  moodName: string
+  title: string
+  description: string
+  moodId: string
+  iconName: string
+  optionIds: string[]
+  id: string
+  dateCreated: number
+}
+
+type DataPostProps = {
+  customDrinks: CustomDrinksAsProps[]
+  options: FBClientOption[]
+  moods: FBClientMood[]
+  handlePostCustomDrink: (e: FormEvent<HTMLFormElement>) => Promise<void>
+  handlePostMood: (e: FormEvent<HTMLFormElement>) => Promise<void>
+  handlePostOption: (e: FormEvent<HTMLFormElement>) => Promise<void>
+  isAdded: boolean
+}
+
+const DataPost: FC<DataPostProps> = ({
   customDrinks,
   options,
   moods,
@@ -9,7 +47,7 @@ const DataPost = ({
   handlePostMood,
   handlePostOption,
   isAdded,
-}: any) => {
+}) => {
   return (
     <>
       {isAdded && 'Added!!!!'}
@@ -67,7 +105,6 @@ const DataPost = ({
             <textarea
               id='description'
               name='description'
-              type='text'
             />
 
             <label htmlFor='iconName'>Icon</label>
@@ -84,7 +121,7 @@ const DataPost = ({
               name='mood'
               id='mood'
             >
-              {moods.map((m: any) => (
+              {moods.map((m) => (
                 <option
                   key={m.id}
                   value={m.id}
@@ -96,7 +133,7 @@ const DataPost = ({
 
             <label>Options</label>
 
-            {options.map((o: any) => (
+            {options.map((o) => (
               <div key={o.id}>
                 <label htmlFor={o.id}>{o.optionName}</label>
 
@@ -126,7 +163,7 @@ const DataPost = ({
               padding: '30px',
             }}
           >
-            {customDrinks.map((cd: any) => (
+            {customDrinks.map((cd) => (
               <li
                 key={cd.id}
                 style={{ border: '1px solid black' }}
@@ -136,7 +173,7 @@ const DataPost = ({
                 <p>moodName: {cd.moodName}</p>
                 optionNames:
                 <ul>
-                  {cd.optionNames.map((on: any) => (
+                  {cd.optionNames.map((on) => (
                     <li key={on}>{on}</li>
                   ))}
                 </ul>
@@ -149,7 +186,11 @@ const DataPost = ({
   )
 }
 
-const DataPostContainer = ({ customDrinks, options, moods }: any) => {
+const DataPostContainer: FC<DataPostContainerProps> = ({
+  customDrinks,
+  options,
+  moods,
+}) => {
   const [isAdded, setIsAdded] = useState(false)
 
   useEffect(() => {
@@ -160,13 +201,15 @@ const DataPostContainer = ({ customDrinks, options, moods }: any) => {
   }, [isAdded])
 
   const getOptions = useCallback(
-    (idx: any) =>
-      customDrinks[idx]?.optionIds?.length
-        ? customDrinks[idx]?.optionIds.map(
-            (oId: any) =>
-              options[options.findIndex((o: any) => o.id === oId)].optionName,
-          )
-        : [],
+    (idx: number) => {
+      if (!customDrinks[idx]?.optionIds?.length) return []
+      return customDrinks[idx]?.optionIds
+        .map(
+          (oId) =>
+            options.at(options.findIndex((o) => o.id === oId))?.optionName,
+        )
+        .filter((v) => v) as string[]
+    },
     [customDrinks, options],
   )
 
@@ -176,36 +219,49 @@ const DataPostContainer = ({ customDrinks, options, moods }: any) => {
     return customDrinks.map((cd, idx) => ({
       ...cd,
       optionNames: getOptions(idx),
-      moodName: moods.filter((m: any) => m.id === cd.moodId)[0]?.moodName,
+      moodName: moods?.filter((m) => m?.id === cd.moodId)[0]?.moodName,
     }))
   }, [customDrinks, moods, getOptions])
 
-  const handlePostOption = async (e: any) => {
+  const handlePostOption = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const optionName = e.target.option_name.value
+    const target = e.target as typeof e.target & {
+      option_name: { value: string }
+    }
+    const optionName = target.option_name.value
     if (!optionName) return
     await backend.options.postOption(optionName)
     setIsAdded(true)
   }
 
-  const handlePostMood = async (e: any) => {
+  const handlePostMood = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const moodName = e.target.mood_name.value
+    const target = e.target as typeof e.target & {
+      mood_name: { value: string }
+    }
+    const moodName = target.mood_name.value
     if (!moodName) return
     await backend.moods.postMood(moodName)
     setIsAdded(true)
   }
 
-  const handlePostCustomDrink = async (e: any) => {
+  const handlePostCustomDrink = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const title = e.target.title.value
-    const description = e.target.description.value
-    const moodId = e.target.mood.value
-    const iconName = e.target.iconName.value
+    const target = e.target as typeof e.target & {
+      title: { value: string }
+      description: { value: string }
+      mood: { value: string }
+      iconName: { value: string }
+      length: number
+    }
+    const title = target.title.value
+    const description = target.description.value
+    const moodId = target.mood.value
+    const iconName = target.iconName.value
     const optionIds = []
-    for (let i = 0; i < e.target.length - 1; i++) {
+    for (let i = 0; i < target.length - 1; i++) {
       if (e.target[i].type === 'checkbox' && e.target[i].checked) {
-        optionIds.push(e.target[i].value)
+        optionIds.push(e.target[i].value as string)
       }
     }
     if (!title || !description || !moodId || !iconName || !optionIds.length)

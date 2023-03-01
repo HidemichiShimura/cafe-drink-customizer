@@ -5,15 +5,14 @@ import {
 } from 'fb/services/customDrinksServices'
 import type {
   FBClientCustomDrink,
+  FBClientCustomDrinkForPost,
   FBStoreCustomDrink,
+  FBStoreCustomDrinkForPost,
 } from 'fb/types/customDrinks.type'
 
-type ConvertBtoF = (
-  customDrink: FBStoreCustomDrink | undefined,
-) => FBClientCustomDrink | undefined
+type ConvertBtoF = (customDrink: FBStoreCustomDrink) => FBClientCustomDrink
 
 const convertBtoF: ConvertBtoF = (customDrink) => {
-  if (!customDrink) return undefined
   const { date_created, mood_id, option_ids, icon_name, ...rest } = customDrink
   return {
     ...rest,
@@ -24,7 +23,9 @@ const convertBtoF: ConvertBtoF = (customDrink) => {
   }
 }
 
-const convertFtoB = (customDrink: any) => {
+const convertFtoB = (
+  customDrink: FBClientCustomDrinkForPost,
+): FBStoreCustomDrinkForPost => {
   const { moodId, optionIds, iconName, ...rest } = customDrink
   return {
     ...rest,
@@ -46,13 +47,16 @@ const fetchCustomDrinks = async () =>
  * @returns {Object} custom drink data
  */
 const fetchCustomDrink = async (id: string) =>
-  fetchFBCustomDrink(id).then((res) => convertBtoF(res))
+  fetchFBCustomDrink(id).then((res) => {
+    if (!res) return undefined
+    return convertBtoF(res)
+  })
 
 /**
  * Post a new custom drink in firestore
  * @param {string} custom drink data
  */
-const postCustomDrink = async (data: any) =>
+const postCustomDrink = async (data: FBClientCustomDrinkForPost) =>
   postFBCustomDrink(convertFtoB(data))
 
 export const customDrinksImpl = {

@@ -1,5 +1,5 @@
-import { FC } from 'react'
 import Link from 'next/link'
+import { FC } from 'react'
 import styles from 'styles/common/Button/Button.module.scss'
 
 interface LinkButtonProps {
