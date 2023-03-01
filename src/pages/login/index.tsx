@@ -1,9 +1,9 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useAuth, useUser } from '../../hooks/firebase'
+import { useAuth } from '../../hooks/firebase'
 
 interface LoginType {
   email: string
