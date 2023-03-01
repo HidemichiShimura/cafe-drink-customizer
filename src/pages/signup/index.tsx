@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useAuth, useUser } from '../../hooks/firebase'
 
@@ -11,45 +11,25 @@ interface SignUpType {
   confirmationPassword: string
 }
 
-const Signup = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignUpType>()
+interface SignUpContainerProps {}
 
-  const auth = useAuth()
-  const currentUser = useUser()
-  const [isProcessingSignup, setIsProcessingSignup] = useState(false)
-  const router = useRouter()
-  const signup = async (email: string, password: string) => {
-    try {
-      setIsProcessingSignup(true)
-      await createUserWithEmailAndPassword(auth, email, password)
-      setIsProcessingSignup(false)
-    } catch (e) {
-      console.error(e)
-    }
-  }
-  const onSubmit: SubmitHandler<SignUpType> = ({
-    email,
-    password,
-    confirmationPassword,
-  }) => {
-    password === confirmationPassword
-      ? signup(email, password)
-      : alert('The password does not match')
-  }
+interface SignUpProps {
+  onSubmit: any
+  register: any
+  errors: any
+  isProcessingSignup: boolean
+}
 
-  useEffect(() => {
-    if (currentUser) router.push('/')
-  }, [currentUser, router])
-  //const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
-
+const SignUp = ({
+  onSubmit,
+  register,
+  errors,
+  isProcessingSignup,
+}: SignUpProps) => {
   return (
     <>
       <h1>Sign up your account</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={onSubmit}>
         <div>
           <label>E-mail</label>
           {errors.email && <p>Please enter e-mail</p>}
@@ -78,7 +58,12 @@ const Signup = () => {
             {...register('confirmationPassword', { required: true })}
           />
         </div>
-        <button type='submit'>Sign up</button>
+        <button
+          type='submit'
+          disabled={isProcessingSignup}
+        >
+          {isProcessingSignup ? 'Signing up...' : 'Sign up'}
+        </button>
       </form>
       <Link href='/login'>Login page</Link>
       <Link href='/'>Just try</Link>
@@ -86,4 +71,48 @@ const Signup = () => {
   )
 }
 
-export default Signup
+const SignUpContainer = ({}: SignUpContainerProps) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignUpType>()
+
+  const auth = useAuth()
+  const currentUser = useUser()
+  const [isProcessingSignup, setIsProcessingSignup] = useState(false)
+  const router = useRouter()
+
+  const signup = async (email: string, password: string) => {
+    try {
+      setIsProcessingSignup(true)
+      await createUserWithEmailAndPassword(auth, email, password)
+      setIsProcessingSignup(false)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  const onSubmit: SubmitHandler<SignUpType> = ({
+    email,
+    password,
+    confirmationPassword,
+  }) => {
+    password === confirmationPassword
+      ? signup(email, password)
+      : alert('The password does not match')
+  }
+
+  if (currentUser) router.push('/')
+
+  return (
+    <SignUp
+      onSubmit={handleSubmit(onSubmit)}
+      register={register}
+      errors={errors}
+      isProcessingSignup={isProcessingSignup}
+    />
+  )
+}
+
+export default SignUpContainer

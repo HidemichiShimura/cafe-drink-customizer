@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useAuth, useUser } from '../../hooks/firebase'
 
-interface LoginFormInputs {
+interface LoginType {
   email: string
   password: string
 }
@@ -15,14 +15,13 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormInputs>()
+  } = useForm<LoginType>()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
   const auth = useAuth()
-  const currentUser = useUser()
 
-  const onSubmit = async (data: LoginFormInputs) => {
+  const onSubmit = async (data: LoginType) => {
     setIsLoading(true)
     setError('')
 
@@ -36,13 +35,9 @@ const Login = () => {
     }
   }
 
-  useEffect(() => {
-    if (currentUser) router.push('/')
-  }, [currentUser, router])
-
   return (
     <div>
-      <h1>Login</h1>
+      <h1>Login to your account</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>Email</label>
