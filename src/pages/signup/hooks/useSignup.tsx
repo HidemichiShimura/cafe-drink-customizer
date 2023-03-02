@@ -3,19 +3,20 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { SubmitHandler } from 'react-hook-form'
 import { SignUpType } from '..'
-import { useUser, auth } from 'hooks/firebase'
+import { auth } from 'fb/configFirestore'
+import { useFBUser } from 'fb/hooks/useFBUser'
 
 export const useSignup = () => {
   const [isProcessingSignup, setIsProcessingSignup] = useState<boolean>(false)
   const router = useRouter()
-  const currentUser = useUser()
+  const { isLoggedIn } = useFBUser()
 
   useEffect(() => {
-    if (currentUser) router.push('/')
+    if (isLoggedIn) router.push('/')
 
     // router will cause re-router.push if router is added in dependencies, so remove it.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentUser])
+  }, [isLoggedIn])
 
   const signup = async (email: string, password: string) => {
     setIsProcessingSignup(true)
