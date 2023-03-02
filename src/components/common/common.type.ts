@@ -6,7 +6,7 @@ export interface IconProps {
 }
 
 export interface IconContainerProps {
-  food: string
+  food?: string
   mood: string
   width: number
   height: number
