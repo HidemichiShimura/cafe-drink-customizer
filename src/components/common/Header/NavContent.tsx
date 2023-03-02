@@ -4,21 +4,14 @@ import { FC, useState } from 'react'
 import { auth } from 'hooks/firebase'
 import styles from 'styles/common/Header/NavContent.module.scss'
 
-const NAV_ITEMS: string[] = ['About']
-const NavContent: FC = () => {
-  const router = useRouter()
-  const [error, setError] = useState<string | null>(null)
+interface NavContentProps {
+  onSignOut: () => void
+  isLoggedIn: boolean
+}
 
-  const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        router.push('/login')
-      })
-      .catch((error) => {
-        setError(error.message)
-      })
-  }
+const NAV_ITEMS: string[] = ['About']
+
+const NavContent: FC<NavContentProps> = ({ onSignOut, isLoggedIn }) => {
   return (
     <>
       {NAV_ITEMS.map((item: string, idx: number) => (
@@ -36,13 +29,7 @@ const NavContent: FC = () => {
       ))}
       <li
         className={styles['nav-content']}
-        onClick={() => {
-          if (auth.currentUser) {
-            handleSignOut()
-          } else {
-            alert('Error: You are not logged in.')
-          }
-        }}
+        onClick={onSignOut}
       >
         <Link
           className={styles['sign-out-button']}
@@ -55,4 +42,27 @@ const NavContent: FC = () => {
   )
 }
 
-export default NavContent
+const NavContentContainer: FC = () => {
+  const router = useRouter()
+  const [error, setError] = useState<string | null>(null)
+
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => router.push('/login'))
+      .catch((error) => setError(error.message))
+  }
+
+  const handleClick = () => {
+    auth.currentUser ? handleSignOut() : alert('Error: You are not logged in.')
+  }
+
+  return (
+    <NavContent
+      onSignOut={handleClick}
+      isLoggedIn={!!auth.currentUser}
+    />
+  )
+}
+
+export default NavContentContainer
