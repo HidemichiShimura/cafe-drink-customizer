@@ -1,6 +1,5 @@
-import { FC } from 'react'
-
 import Head from 'next/head'
+import { FC } from 'react'
 
 import {
   AboutSectionLayout,
@@ -86,7 +85,7 @@ const About: FC = () => {
           <AboutSectionLayout title='Can’t wait to start?'>
             <LinkButton
               buttonContent={'Get started'}
-              link={'/'}
+              link={'/login'}
             />
           </AboutSectionLayout>
         </PageLayout>
