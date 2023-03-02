@@ -18,6 +18,18 @@
     }
   }
 
+  .sign-out-button {
+    background-color: a.$clrMainGreen;
+    color: a.$clrWhite;
+    padding: 10px 14px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
   @include m.mobile {
     padding: 0 0 2rem 0;
   }
