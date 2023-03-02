@@ -2,7 +2,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { LoginType } from '..'
-import { auth } from 'hooks/firebase'
+import { auth } from 'fb/configFirestore'
 
 export const useLogin = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)

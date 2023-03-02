@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FC, useState } from 'react'
-import { auth } from 'hooks/firebase'
+import { FC, useEffect } from 'react'
+import { auth } from 'fb/configFirestore'
+import { useFBUser } from 'fb/hooks/useFBUser'
 import styles from 'styles/common/Header/NavContent.module.scss'
 
 interface NavContentProps {
@@ -9,7 +10,10 @@ interface NavContentProps {
   isLoggedIn: boolean
 }
 
-const NAV_ITEMS: string[] = ['About']
+// This would be Union in the future ('About' | 'Foo' | 'Smaple')[]
+type NAV_ITEMS_TYPE = 'About'[]
+
+const NAV_ITEMS: NAV_ITEMS_TYPE = ['About']
 
 const NavContent: FC<NavContentProps> = ({ onSignOut, isLoggedIn }) => {
   return (
@@ -27,40 +31,39 @@ const NavContent: FC<NavContentProps> = ({ onSignOut, isLoggedIn }) => {
           </Link>
         </li>
       ))}
-      <li
-        className={styles['nav-content']}
+      <button
+        className={styles['nav-content-sign-out-button']}
         onClick={onSignOut}
       >
-        <Link
-          className={styles['sign-out-button']}
-          href={''}
-        >
-          Sign out
-        </Link>
-      </li>
+        {isLoggedIn ? 'Sign out' : 'Sign in'}
+      </button>
     </>
   )
 }
 
 const NavContentContainer: FC = () => {
   const router = useRouter()
-  const [error, setError] = useState<string | null>(null)
+  const { isLoggedIn } = useFBUser()
+
+  // prefetfch next route path
+  useEffect(() => {
+    router.prefetch('/login')
+  }, [router])
 
   const handleSignOut = () => {
     auth
       .signOut()
       .then(() => router.push('/login'))
-      .catch((error) => setError(error.message))
+      .catch((error) => alert(error.message))
   }
 
-  const handleClick = () => {
-    auth.currentUser ? handleSignOut() : alert('Error: You are not logged in.')
-  }
+  const handleClick = () =>
+    isLoggedIn ? handleSignOut() : router.push('/login')
 
   return (
     <NavContent
       onSignOut={handleClick}
-      isLoggedIn={!!auth.currentUser}
+      isLoggedIn={isLoggedIn}
     />
   )
 }

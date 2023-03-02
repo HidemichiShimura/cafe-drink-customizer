@@ -9,8 +9,13 @@ import {
   AboutAppDescription,
   CustomizeMain,
 } from 'components'
+import { useFBUser } from 'fb/hooks/useFBUser'
 
-const About: FC = () => {
+interface About {
+  isLoggedIn: boolean
+}
+
+const About: FC<About> = ({ isLoggedIn }) => {
   // Non-customized drink
   const IconName = 'pumpkin'
   const DrinkName = 'Hocus Pocus Latte'
@@ -85,7 +90,7 @@ const About: FC = () => {
           <AboutSectionLayout title='Can’t wait to start?'>
             <LinkButton
               buttonContent={'Get started'}
-              link={'/login'}
+              link={isLoggedIn ? '/' : '/login'}
             />
           </AboutSectionLayout>
         </PageLayout>
@@ -94,4 +99,10 @@ const About: FC = () => {
   )
 }
 
-export default About
+const AboutContainer = () => {
+  const { isLoggedIn } = useFBUser()
+
+  return <About isLoggedIn={isLoggedIn} />
+}
+
+export default AboutContainer

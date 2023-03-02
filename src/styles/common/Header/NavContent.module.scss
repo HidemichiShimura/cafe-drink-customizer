@@ -18,12 +18,13 @@
     }
   }
 
-  .sign-out-button {
+  &-sign-out-button {
     background-color: a.$clrMainGreen;
     color: a.$clrWhite;
     padding: 10px 14px;
     font-size: 1.2rem;
     border-radius: 10px;
+    border: none;
 
     &:hover {
       opacity: 0.9;
