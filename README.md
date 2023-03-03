@@ -4,14 +4,16 @@
 
 <br/>
 
-## Table of Content
+## 📚**Table of Contents**
 
-- [Description](#description)
-- [Built with](#built-with)
-- [Achievements](#achievements)
+- [Description](#📖-description)
+- [Built with](#🛠-built-with)
+- [Achievements](#🏆-achievements)
   - [Front-end](#front-end)
   - [Back-end](#back-end)
-- [Contributors](#contributors)
+- [Contributors](#👥-contributors)
+
+<br/>
 
 ## 📖 **Description**
 
