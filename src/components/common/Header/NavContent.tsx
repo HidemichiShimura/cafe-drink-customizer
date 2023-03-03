@@ -35,7 +35,7 @@ const NavContent: FC<NavContentProps> = ({ onSignOut, isLoggedIn }) => {
         className={styles['nav-content-sign-out-button']}
         onClick={onSignOut}
       >
-        {isLoggedIn ? 'Sign out' : 'Sign in'}
+        {isLoggedIn ? 'Sign out' : 'Log in'}
       </button>
     </>
   )
