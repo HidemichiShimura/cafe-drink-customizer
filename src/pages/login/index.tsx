@@ -7,7 +7,7 @@ import {
   FieldErrors,
 } from 'react-hook-form'
 import { useLogin } from './hooks/useLogin'
-import styles from 'styles/pages/login.module.scss'
+import styles from 'styles/pages/loginsignup.module.scss'
 
 export interface LoginType {
   email: string
@@ -60,7 +60,7 @@ const Login: FC<LoginProps> = ({
           </div>
           {error && <p className={styles['error-sentence2']}>{error}</p>}
           <button
-            className={styles['login-button']}
+            className={styles['login-signup-button']}
             type='submit'
             disabled={isLoading}
           >

@@ -61,7 +61,7 @@
       margin: 0;
     }
 
-    .login-button {
+    .login-signup-button {
       cursor: pointer;
       background-color: a.$clrMainGreen;
       color: a.$clrWhite;
@@ -72,6 +72,10 @@
       margin: 40px auto 0 auto;
       border-radius: 10px;
       font-size: 1.2rem;
+
+      @include m.mobile {
+        font-size: 0.9rem;
+      }
 
       &:hover {
         opacity: 0.9;
@@ -85,6 +89,22 @@
       .move-button {
         color: a.$clrMainGreen;
       }
+    }
+
+    .move-login-button {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: a.$clrTextCommon;
+      margin-right: 6px;
+      padding-right: 6px;
+      border-right: solid 1px a.$clrTextCommon;
+    }
+
+    .try-button {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: a.$clrMainGreen;
+      margin-left: 6px;
     }
   }
 }
