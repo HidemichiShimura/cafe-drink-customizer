@@ -7,6 +7,7 @@ import {
   UseFormRegister,
 } from 'react-hook-form'
 import { useSignup } from './hooks/useSignup'
+import styles from 'styles/pages/loginsignup.module.scss'
 
 export interface SignUpType {
   email: string
@@ -30,47 +31,69 @@ const SignUp = ({
   isProcessingSignup,
 }: SignUpProps) => {
   return (
-    <>
-      <h1>Sign up your account</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>E-mail</label>
-          {errors.email && <p>Please enter e-mail</p>}
-          <input
-            type='email'
-            {...register('email', { required: true })}
-          />
-        </div>
-        <div>
-          <label>Create password</label>
-          {errors.password && <p>Please enter password</p>}
-          <input
-            type='password'
-            minLength={6}
-            {...register('password', { required: true })}
-          />
-        </div>
-        <div>
-          <label>Confirm password</label>
-          {errors.confirmationPassword && (
-            <p>Please enter confirmation password</p>
-          )}
-          <input
-            type='password'
-            minLength={6}
-            {...register('confirmationPassword', { required: true })}
-          />
-        </div>
-        <button
-          type='submit'
-          disabled={isProcessingSignup}
+    <div className={styles['container']}>
+      <div className={styles['form-container']}>
+        <h1 className={styles['title']}>Sign up your account</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles['input-container']}>
+            <label className={styles['input-title']}>E-mail</label>
+            {errors.email && (
+              <p className={styles['error-sentence1']}>Please enter e-mail</p>
+            )}
+            <input
+              className={styles['input-box']}
+              type='email'
+              {...register('email', { required: true })}
+            />
+          </div>
+          <div className={styles['input-container']}>
+            <label className={styles['input-title']}>Create password</label>
+            {errors.password && (
+              <p className={styles['error-sentence1']}>Please enter password</p>
+            )}
+            <input
+              className={styles['input-box']}
+              type='password'
+              minLength={6}
+              {...register('password', { required: true })}
+            />
+          </div>
+          <div className={styles['input-container']}>
+            <label className={styles['input-title']}>Confirm password</label>
+            {errors.confirmationPassword && (
+              <p className={styles['error-sentence1']}>
+                Please enter confirmation password
+              </p>
+            )}
+            <input
+              className={styles['input-box']}
+              type='password'
+              minLength={6}
+              {...register('confirmationPassword', { required: true })}
+            />
+          </div>
+          <button
+            className={styles['login-signup-button']}
+            type='submit'
+            disabled={isProcessingSignup}
+          >
+            {isProcessingSignup ? 'Signing up...' : 'Sign up'}
+          </button>
+        </form>
+        <Link
+          className={styles['move-login-button']}
+          href='/login'
         >
-          {isProcessingSignup ? 'Signing up...' : 'Sign up'}
-        </button>
-      </form>
-      <Link href='/login'>Login page</Link>
-      <Link href='/'>Just try</Link>
-    </>
+          Login page
+        </Link>
+        <Link
+          className={styles['try-button']}
+          href='/'
+        >
+          Just try
+        </Link>
+      </div>
+    </div>
   )
 }
 
