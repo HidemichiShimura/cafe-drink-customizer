@@ -1,6 +1,6 @@
-import { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { FC } from 'react'
 import styles from 'styles/common/Header/HeaderLogo.module.scss'
 
 const HeaderLogo: FC = () => (
