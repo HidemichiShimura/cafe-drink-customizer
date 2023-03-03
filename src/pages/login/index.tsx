@@ -7,6 +7,7 @@ import {
   FieldErrors,
 } from 'react-hook-form'
 import { useLogin } from './hooks/useLogin'
+import styles from 'styles/pages/login.module.scss'
 
 export interface LoginType {
   email: string
@@ -31,36 +32,51 @@ const Login: FC<LoginProps> = ({
   error,
 }) => {
   return (
-    <div>
-      <h1>Login to your account</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label>Email</label>
-          <input
-            type='email'
-            {...register('email', { required: true })}
-          />
-          {errors.email && <p>Please enter e-mail</p>}
-        </div>
-        <div>
-          <label>Password</label>
-          <input
-            type='password'
-            {...register('password', { required: true })}
-          />
-          {errors.password && <p>Please enter password</p>}
-        </div>
-        {error && <p>{error}</p>}
-        <button
-          type='submit'
-          disabled={isLoading}
-        >
-          {isLoading ? 'Loading...' : 'Login'}
-        </button>
-      </form>
-      <p>
-        Do not have an account? <Link href='/signup'>Resister from here!</Link>
-      </p>
+    <div className={styles['container']}>
+      <div className={styles['form-container']}>
+        <h1 className={styles['title']}>Login to your account</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className={styles['input-container']}>
+            <label className={styles['input-title']}>Email</label>
+            {errors.email && (
+              <p className={styles['error-sentence1']}>Please enter e-mail</p>
+            )}
+            <input
+              className={styles['input-box']}
+              type='email'
+              {...register('email', { required: true })}
+            />
+          </div>
+          <div className={styles['input-container']}>
+            <label className={styles['input-title']}>Password</label>
+            {errors.password && (
+              <p className={styles['error-sentence1']}>Please enter password</p>
+            )}
+            <input
+              className={styles['input-box']}
+              type='password'
+              {...register('password', { required: true })}
+            />
+          </div>
+          {error && <p className={styles['error-sentence2']}>{error}</p>}
+          <button
+            className={styles['login-button']}
+            type='submit'
+            disabled={isLoading}
+          >
+            {isLoading ? 'Loading...' : 'Login'}
+          </button>
+        </form>
+        <p className={styles['selection']}>
+          Do not have an account?{' '}
+          <Link
+            className={styles['move-button']}
+            href='/signup'
+          >
+            Resister from here!
+          </Link>
+        </p>
+      </div>
     </div>
   )
 }
