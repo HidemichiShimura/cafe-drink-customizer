@@ -1,6 +1,5 @@
-import { FC } from 'react'
-
 import { useRouter, NextRouter } from 'next/router'
+import { FC } from 'react'
 
 import styles from 'styles/common/banner/banner.module.scss'
 
