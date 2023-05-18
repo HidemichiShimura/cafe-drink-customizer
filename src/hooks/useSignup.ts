@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { SubmitHandler } from 'react-hook-form'
-import { SignUpType } from '..'
+import { SignUpType } from '../pages/signup'
 import { auth } from 'fb/configFirestore'
 import { useFBUser } from 'fb/hooks/useFBUser'
 
