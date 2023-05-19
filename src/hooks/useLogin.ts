@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { LoginType } from '../pages/login'
+import { LoginType } from 'components/pages/Login/Login.type'
 import { auth } from 'fb/configFirestore'
 
 export const useLogin = () => {
