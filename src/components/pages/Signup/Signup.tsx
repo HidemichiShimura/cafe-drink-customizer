@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { useSignup } from 'hooks/useSignup'
-import styles from 'styles/pages/loginsignup.module.scss'
 import { SignUpProps, SignUpType } from './Signup.type'
+import styles from 'styles/pages/loginsignup.module.scss'
 
 const SignUp = ({
   handleSubmit,
