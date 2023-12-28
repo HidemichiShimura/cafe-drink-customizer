@@ -1,38 +1,57 @@
-# starbucks-drink-customizer
+# **Cafe Drink Customizer**
 
-## Getting Started
+![](public/readme-images/app-demo.gif)
 
-First, run the development server:
+<br/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## 📚**Table of Contents**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Description](#📖-description)
+- [Built with](#🛠-built-with)
+- [Achievements](#🏆-achievements)
+  - [Front-end](#front-end)
+  - [Back-end](#back-end)
+- [Contributors](#👥-contributors)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<br/>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## 📖 **Description**
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+_Cafe Drink Customizer_ is a web application that solves the problem of indecision at cafes. It offers many drink options and customizations based on mood and taste preferences, allowing users to create unique beverage combinations. This app enhances the cafe experience by providing personalized and unparalleled beverage selections.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<br/>
 
-## Learn More
+## 🛠 **Built with**
 
-To learn more about Next.js, take a look at the following resources:
+<p align="left"> 
+  <img alt="html5 icon" src="https://img.icons8.com/color/48/undefined/html-5--v1.png"/>
+  <img alt="css3 icon" src="https://img.icons8.com/color/48/undefined/css3.png"/>
+<!-- SASS is going to be replaced with styled-components later -->
+  <img alt="sass icon" src="https://img.icons8.com/color/48/null/sass.png"/>
+  <img alt="typescript icon" src="https://img.icons8.com/fluency/48/null/typescript--v2.png"/>
+  <img alt="react icon" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/null/external-react-a-javascript-library-for-building-user-interfaces-logo-color-tal-revivo.png"/>
+  <img alt="next.js icon" src="https://img.icons8.com/fluency-systems-regular/48/ffffff/nextjs.png"/>
+  <img alt="firebase icon" src="https://img.icons8.com/color/48/null/firebase.png"/>
+</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br/>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🏆 **Achievements**
 
-## Deploy on Vercel
+### **Front-end**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### **Back-end**
+
+-
+
+<br/>
+
+## 👥 **Contributors**
+
+Yuya Minamide [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/yuya-minamide) [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-Profile-informational?style=flat&logo=linkedin&logoColor=white&color=0D76A8)](https://www.linkedin.com/in/yuya-minamide/)
+
+Soma Ikeda [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Soma-dev0808) [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-Profile-informational?style=flat&logo=linkedin&logoColor=white&color=0D76A8)](https://www.linkedin.com/in/soma-ikeda-99b9741b6/)
+
+Hidemichi Shimura [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/HidemichiShimura) [![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-Profile-informational?style=flat&logo=linkedin&logoColor=white&color=0D76A8)](https://www.linkedin.com/in/hidemichi-shimura/)
